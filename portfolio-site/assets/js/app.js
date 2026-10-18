@@ -356,142 +356,10 @@ const FALLBACK_PORTFOLIO_DATA = {
 };
 
 let portfolioProjects = FALLBACK_PORTFOLIO_DATA.projects;
-let activeCategory = "ALL";
 
 // ============================================================================
-// 1. RENDERIZAÇÃO DE PROJETOS E FILTROS
+// Cartões dos projetos e janela de detalhes técnicos: ver assets/js/cases.js
 // ============================================================================
-function renderProjects(filterCat = "ALL") {
-  const grid = document.getElementById("projects-grid");
-  if (!grid) return;
-
-  const filtered = filterCat === "ALL"
-    ? portfolioProjects
-    : portfolioProjects.filter(p => p.categories.includes(filterCat) || p.stack.some(s => s.toLowerCase().includes(filterCat.toLowerCase())));
-
-  grid.innerHTML = filtered.map(p => `
-    <article class="project-card ${p.id === 'projeto-03-dw-snapshots-diff' ? 'featured-highlight' : ''}">
-      <div>
-        <div class="project-top-meta">
-          <span class="project-code">${p.code}</span>
-          <span class="project-company">${p.company}</span>
-        </div>
-        <h3 class="project-title">${p.title}</h3>
-        <p class="project-summary">${p.context.slice(0, 175)}...</p>
-        <ul class="metrics-list">
-          ${p.headlineMetrics.map(m => `<li><span>${m}</span></li>`).join("")}
-        </ul>
-      </div>
-      <div>
-        <div class="tag-row">
-          ${p.stack.map(t => `<span class="tech-tag">${t}</span>`).join("")}
-        </div>
-        <div class="project-actions">
-          <button class="btn btn-primary btn-sm" onclick="openProjectModal('${p.id}')">
-            Inspecionar Arquitetura & Código
-          </button>
-          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-emerald);">
-            ✓ Pytest Passing
-          </span>
-        </div>
-      </div>
-    </article>
-  `).join("");
-}
-
-function setFilter(cat, btnEl) {
-  activeCategory = cat;
-  document.querySelectorAll(".filter-chip").forEach(b => b.classList.remove("active"));
-  if (btnEl) btnEl.classList.add("active");
-  renderProjects(cat);
-}
-
-function openProjectModal(projectId) {
-  const p = portfolioProjects.find(item => item.id === projectId);
-  if (!p) return;
-
-  const body = document.getElementById("modal-body");
-  body.innerHTML = `
-    <div style="margin-bottom: 1.25rem;">
-      <span class="project-code">${p.code}</span>
-      <span style="margin-left: 0.75rem; font-size: 0.85rem; color: var(--text-muted);">${p.company} · ${p.role}</span>
-      <h2 style="font-size: 1.65rem; margin-top: 0.5rem;">${p.title}</h2>
-    </div>
-
-    <div class="gov-banner" style="padding: 0.75rem 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
-      <strong>Nota de Governança e Sigilo:</strong> A arquitetura e os resultados abaixo refletem o projeto real executado em produção. O código do repositório demonstrativo (<code>${p.repoPath}</code>) opera sobre <strong>dados 100% sintéticos (seed=42)</strong> para demonstrar o método de engenharia sem expor dados corporativos.
-    </div>
-
-    <div class="modal-section">
-      <h4>1. Contexto & Problema de Negócio</h4>
-      <p style="color: var(--text-secondary); font-size: 0.92rem;">${p.context}</p>
-    </div>
-
-    <div class="modal-section">
-      <h4>2. Desafio Técnico</h4>
-      <p style="color: var(--text-secondary); font-size: 0.92rem;">${p.challenge}</p>
-    </div>
-
-    <div class="modal-section">
-      <h4>3. Arquitetura Ponta a Ponta</h4>
-      <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 0.5rem;">${p.architecture.summary}</p>
-      <div class="arch-flow">
-        ${p.architecture.nodes.map((n, idx) => `
-          <span class="arch-node">${n}</span>
-          ${idx < p.architecture.nodes.length - 1 ? '<span class="arch-arrow">→</span>' : ''}
-        `).join("")}
-      </div>
-    </div>
-
-    <div class="modal-section">
-      <h4>4. Decisões Técnicas e Trade-offs</h4>
-      ${p.decisions.map(d => `
-        <div class="decision-box">
-          <strong style="display:block; margin-bottom: 0.25rem; color: var(--text-primary); font-size: 0.92rem;">${d.title}</strong>
-          <span style="color: var(--text-secondary); font-size: 0.86rem;">${d.detail}</span>
-        </div>
-      `).join("")}
-    </div>
-
-    <div class="modal-section">
-      <h4>5. Implementação Real Documentada vs. Demonstração Pública Reconstruída</h4>
-      <div class="sim-grid" style="grid-template-columns: 1fr 1fr;">
-        <div class="sim-box">
-          <div class="sim-box-title">PRODUÇÃO REAL (DOCUMENTADA)</div>
-          <p style="font-size: 0.85rem; color: var(--text-secondary);">${p.demoVsReal.real}</p>
-        </div>
-        <div class="sim-box">
-          <div class="sim-box-title">RECONSTRUÇÃO PÚBLICA (DADOS SINTÉTICOS)</div>
-          <p style="font-size: 0.85rem; color: var(--text-secondary);">${p.demoVsReal.demo}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal-section">
-      <h4>6. Qualidade, Confiabilidade e Execução Local</h4>
-      <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 0.75rem;">${p.quality}</p>
-      <div class="code-cmd">
-# Executar demonstração com dados sintéticos e auditoria no terminal:
-${p.demoCommand}
-
-# Executar suíte de testes automatizados (Pytest):
-${p.testCommand}
-      </div>
-    </div>
-
-    <div class="modal-section">
-      <h4>7. Resultados Comprovados & 8. Lições Aprendidas</h4>
-      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.6rem;"><strong>Resultados:</strong> ${p.results}</p>
-      <p style="color: var(--text-secondary); font-size: 0.9rem;"><strong>Lição de Arquitetura:</strong> ${p.lessons}</p>
-    </div>
-  `;
-
-  document.getElementById("project-modal").classList.add("open");
-}
-
-function closeProjectModal() {
-  document.getElementById("project-modal").classList.remove("open");
-}
 
 // ============================================================================
 // 2. SIMULADOR INTERATIVO — DW FINANCEIRO (SNAPSHOTS & DIFF ENGINE)
@@ -914,7 +782,12 @@ function toggleTheme() {
   const next = current === "dark" ? "light" : "dark";
   root.setAttribute("data-theme", next);
   const btn = document.getElementById("theme-toggle-btn");
-  if (btn) btn.textContent = next === "dark" ? "☀ Modo Claro" : "☾ Modo Escuro";
+  if (btn) {
+    const icon = btn.querySelector(".theme-icon");
+    const text = btn.querySelector(".theme-text");
+    if (icon) icon.textContent = next === "dark" ? "☀" : "☾";
+    if (text) text.textContent = next === "dark" ? " Modo claro" : " Modo escuro";
+  }
 }
 
 function copyContact(value, label) {

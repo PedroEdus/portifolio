@@ -3,8 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pedro Eduardo Carneiro Moura | Portfólio de Engenharia de Dados, Analytics Engineering & BI</title>
-  <meta name="description" content="Portfólio Técnico de Engenharia de Dados, Analytics Engineering e Business Intelligence construído a partir de arquiteturas reais em Microsoft Fabric, Data Warehouse Snapshots, PySpark, BigQuery e Python." />
+  <title>Pedro Eduardo Carneiro Moura | Engenheiro de Dados</title>
+  <meta name="description" content="Engenheiro de Dados em Goiânia. Conecto os sistemas da empresa, confiro os números e entrego painéis e relatórios confiáveis para financeiro, cobrança, vendas e marketing." />
+  <meta name="theme-color" content="#0b0f17" />
+  <link rel="canonical" href="https://pedroedus.github.io/portifolio/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Pedro Eduardo Carneiro Moura | Engenheiro de Dados" />
+  <meta property="og:description" content="Transformo dados espalhados em informação em que a empresa pode confiar. Veja 6 projetos explicados em linguagem simples." />
+  <meta property="og:url" content="https://pedroedus.github.io/portifolio/" />
+  <meta property="og:image" content="https://pedroedus.github.io/portifolio/assets/img/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
@@ -12,162 +25,229 @@
 </head>
 <body>
 
-  <!-- Top Governance & Confidentiality Banner -->
-  <div class="gov-banner">
-    <div class="container gov-banner-inner">
-      <div>
-        <span class="gov-badge">✓ DADOS 100% SINTÉTICOS (SEED=42)</span>
-        <span style="margin-left: 0.5rem;">
-          Projetos reais desenvolvidos em <strong>duas incorporadoras imobiliárias</strong> (empresa A e empresa B). O código público demonstra exclusivamente o <strong>método de engenharia</strong>, preservando integralmente o sigilo corporativo e a LGPD.
-        </span>
-      </div>
-      <a href="../docs/03-revisao-seguranca.md" style="color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.75rem; text-decoration: none;">
-        Ver Auditoria de Segurança →
-      </a>
+  <div class="topnote">
+    <div class="container">
+      Os projetos vêm de experiências reais em duas incorporadoras imobiliárias. Os exemplos deste site usam <strong>dados fictícios</strong>: nenhum dado de clientes ou das empresas é exibido.
     </div>
   </div>
 
-  <!-- Sticky Navigation -->
   <header class="navbar">
     <div class="container nav-inner">
       <a href="#topo" class="brand">
-        <div class="brand-mark">PE</div>
+        <div class="brand-mark">PM</div>
         <div class="brand-text">
           <span class="brand-name">Pedro Eduardo Carneiro Moura</span>
-          <span class="brand-role">DATA ENGINEER · ANALYTICS ENGINEER · BI</span>
+          <span class="brand-role">Engenheiro de Dados</span>
         </div>
       </a>
 
-      <ul class="nav-links">
-        <li><a href="#estudos-de-caso">Estudos de Caso (6)</a></li>
-        <li><a href="#simuladores">Simuladores Ao Vivo</a></li>
-        <li><a href="#stack-tecnica">Matriz Tecnológica</a></li>
-        <li><a href="#trajetoria">Trajetória & Arquitetura</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
+      <nav aria-label="Seções do site">
+        <ul class="nav-links">
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#como-trabalho">Como eu trabalho</a></li>
+          <li><a href="#trajetoria">Trajetória</a></li>
+          <li><a href="#area-tecnica" onclick="openTechArea()">Área técnica</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
 
       <div class="nav-actions">
-        <button id="theme-toggle-btn" class="btn btn-outline btn-sm" onclick="toggleTheme()">
-          ☀ Modo Claro
-        </button>
-        <a href="https://github.com/PedroEdus" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-          GitHub @PedroEdus ↗
-        </a>
+        <button id="theme-toggle-btn" type="button" class="btn btn-outline btn-sm" onclick="toggleTheme()" aria-label="Alternar entre tema claro e escuro" title="Alternar tema"><span class="theme-icon" aria-hidden="true">☀</span><span class="theme-text"> Modo claro</span></button>
+        <a href="https://github.com/PedroEdus" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">GitHub ↗</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="topo" class="hero">
-    <div class="container">
-      <div class="hero-eyebrow">
-        <span>PORTFÓLIO TÉCNICO BASEADO EM EVIDÊNCIAS REAIS & CÓDIGO EXECUTÁVEL</span>
-      </div>
-      <h1 class="hero-title">
-        Engenharia de Dados, Arquitetura Lakehouse/DW e <span>Soluções Analíticas Auditáveis</span>
-      </h1>
-      <p class="hero-subtitle">
-        Da engenharia reversa de sistemas legados e bancos relacionais complexos à construção de plataformas Medallion no <strong>Microsoft Fabric</strong>, <strong>Data Warehouses com motores de Snapshots e Diff</strong>, malhas de ingestão multi-API no <strong>Google BigQuery</strong> e modelos semânticos <strong>Direct Lake</strong> com paridade matemática comprovada célula a célula.
-      </p>
-
-      <!-- Priority Positioning Cards -->
-      <div class="positioning-grid">
-        <div class="pos-card rank-1">
-          <div class="pos-rank">Posicionamento Prioritário 01</div>
-          <div class="pos-role">Data Engineer</div>
-          <p class="pos-desc">
-            Arquitetura Medallion (Fabric / PySpark / Delta), Data Warehousing transacional com historização por snapshots semanais/diários (~2,58M linhas/foto), ingestão multi-API resiliente (BigQuery / GitHub Actions) e parsers binários em NumPy bitwise.
-          </p>
-        </div>
-        <div class="pos-card">
-          <div class="pos-rank">Posicionamento Prioritário 02</div>
-          <div class="pos-role">Analytics Engineer</div>
-          <p class="pos-desc">
-            Modelagem Star Schema com dimensões acumulativas sem órfãos, motores de diff de parcelas/rateios, conciliação contábil de 5 pernas, matrizes Roll-Rate ($M \to M+1$), máquinas de estados temporais e reconciliação 100% SQL × PySpark.
-          </p>
-        </div>
-        <div class="pos-card">
-          <div class="pos-rank">Posicionamento Prioritário 03</div>
-          <div class="pos-role">BI Engineer & Data Apps Specialist</div>
-          <p class="pos-desc">
-            Modelos semânticos Direct Lake (333+ medidas DAX governadas), auditoria estática de relatórios PBIR/TMDL em larga escala e Data Apps executivos em Streamlit com compactação de -60% de memória RAM.
-          </p>
-        </div>
-      </div>
-
-      <div style="display: flex; flex-wrap: wrap; gap: 0.85rem; margin-bottom: 2.5rem;">
-        <a href="#estudos-de-caso" class="btn btn-primary">Explorar os 6 Estudos de Caso</a>
-        <a href="#simuladores" class="btn btn-outline">Testar Simulador DW Snapshots & Diff</a>
-        <a href="../docs/01-inventario.md" class="btn btn-outline">Ler Inventário Técnico Completo</a>
-      </div>
-
-      <!-- Verified Impact Counters -->
-      <div class="stats-grid">
-        <div class="stat-card" onclick="openProjectModal('projeto-03-dw-snapshots-diff')">
-          <div class="stat-value">2,58M</div>
-          <div class="stat-label">Linhas/foto no motor de Snapshots Semanais e Diff Engine do DW Financeiro (~134M/ano)</div>
-        </div>
-        <div class="stat-card" onclick="openProjectModal('projeto-01-lakehouse-recebiveis')">
-          <div class="stat-value">2.826/2.826</div>
-          <div class="stat-label">Células reconciliadas com 100% de paridade matemática entre SQL Bronze e PySpark Gold</div>
-        </div>
-        <div class="stat-card" onclick="openProjectModal('projeto-02-conciliacao-bancaria')">
-          <div class="stat-value">26d → 3d</div>
-          <div class="stat-label">Redução do fechamento semanal de conciliação bancária (6.330/6.330 conta×dias batidos)</div>
-        </div>
-        <div class="stat-card" onclick="openProjectModal('projeto-05-engenharia-reversa-bi')">
-          <div class="stat-value">654M+</div>
-          <div class="stat-label">Registros varridos em 508 arquivos .qvd via parser binário próprio em NumPy bitwise</div>
-        </div>
-        <div class="stat-card" onclick="openProjectModal('projeto-04-marketing-crm-cloud')">
-          <div class="stat-value">-60% RAM</div>
-          <div class="stat-label">Otimização de memória em Data Apps + 6 APIs orquestradas via GitHub Actions & BigQuery</div>
-        </div>
-        <div class="stat-card" onclick="openProjectModal('projeto-06-maquina-estados-imobiliario')">
-          <div class="stat-value">10 Anos</div>
-          <div class="stat-label">Série histórica mensal (2017–2026) reconstruída reconciliando 1 ERP + 3 CRMs</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section: 6 Case Studies -->
-  <section id="estudos-de-caso" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">FASE 5 & 6 · ARQUITETURA REAL DOCUMENTADA + DEMONSTRAÇÃO EXECUTÁVEL</span>
-        <h2 class="section-title">Estudos de Caso Principais</h2>
-        <p class="section-desc">
-          Cada estudo de caso possui documentação arquitetural completa, decisões técnicas reais, comparação entre o ambiente de produção e a reconstrução pública com dados sintéticos, além de código Python/SQL executável e suíte de testes automatizados (<code>pytest</code>).
+  <main>
+    <section id="topo" class="hero">
+      <div class="container">
+        <p class="hero-eyebrow">Engenheiro de Dados · Goiânia, GO</p>
+        <h1 class="hero-title">
+          Transformo dados espalhados em <span>informação em que a empresa pode confiar.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Trabalho com os números que movem uma incorporadora: financeiro, cobrança, vendas e marketing. Meu trabalho é conectar os sistemas, conferir cada número e entregar painéis e relatórios que as pessoas realmente usam para decidir.
         </p>
-      </div>
 
-      <!-- Filter Bar -->
-      <div class="filter-bar">
-        <button class="filter-chip active" onclick="setFilter('ALL', this)">Todos os Projetos (6)</button>
-        <button class="filter-chip" onclick="setFilter('Data Warehousing & Snapshots', this)">★ Data Warehousing & Snapshots</button>
-        <button class="filter-chip" onclick="setFilter('Data Engineering', this)">Data Engineering</button>
-        <button class="filter-chip" onclick="setFilter('Analytics Engineering', this)">Analytics Engineering</button>
-        <button class="filter-chip" onclick="setFilter('Cloud & APIs', this)">Cloud, BigQuery & APIs</button>
-        <button class="filter-chip" onclick="setFilter('Reverse Engineering & Governance', this)">Engenharia Reversa & PBIR/DAX</button>
-        <button class="filter-chip" onclick="setFilter('State Machines & Algorithms', this)">Máquinas de Estado & Geoespacial</button>
-      </div>
+        <div class="hero-actions">
+          <a href="#projetos" class="btn btn-primary">Ver meus projetos</a>
+          <a href="#contato" class="btn btn-outline">Falar comigo</a>
+        </div>
 
-      <!-- Projects Grid populated by app.js -->
-      <div id="projects-grid" class="projects-grid"></div>
-    </div>
-  </section>
-
-  <!-- Section: Interactive Engineering Simulators -->
-  <section id="simuladores" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">LABORATÓRIO INTERATIVO NO NAVEGADOR</span>
-        <h2 class="section-title">Simuladores de Motores de Engenharia</h2>
-        <p class="section-desc">
-          Interaja diretamente com a lógica central de três projetos do portfólio: o <strong>Motor de Snapshots e Diff de Parcelas do DW Financeiro</strong>, o <strong>Gate Staging-First e Matriz Roll-Rate do Lakehouse</strong> e o <strong>Expurgo de Pares Transitórios da Conciliação Bancária</strong>.
-        </p>
+        <div class="numbers" aria-label="Alguns resultados">
+          <div class="number-card">
+            <div class="number-value">26 → 3 dias</div>
+            <div class="number-label">para fechar a conciliação bancária da semana</div>
+          </div>
+          <div class="number-card">
+            <div class="number-value">10 anos</div>
+            <div class="number-label">de histórico de estoque de imóveis reconstruído</div>
+          </div>
+          <div class="number-card">
+            <div class="number-value">6 plataformas</div>
+            <div class="number-label">de marketing e vendas reunidas em um só painel</div>
+          </div>
+          <div class="number-card">
+            <div class="number-value">100%</div>
+            <div class="number-label">dos números do painel de cobrança conferidos (2.826 de 2.826)</div>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <section id="o-que-faco" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">O que eu faço</span>
+          <h2 class="section-title">Do dado bruto à decisão, em três passos</h2>
+          <p class="section-desc">
+            Os dados de uma empresa ficam espalhados em sistemas de gestão, CRMs, plataformas de anúncio e planilhas. Eu cuido do caminho entre essas fontes e a pessoa que precisa decidir.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <h3>Conecto os sistemas</h3>
+            <p>Faço as fontes conversarem e levo tudo para um só lugar, de forma automática e sem trabalho manual.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <h3>Organizo e confiro</h3>
+            <p>Padronizo, removo duplicidades e comparo o resultado com os relatórios que a empresa já usava, para que ninguém precise desconfiar do número.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <h3>Entrego para decidir</h3>
+            <p>Transformo a base pronta em painéis, aplicativos e relatórios que respondem às perguntas do dia a dia do financeiro, da cobrança e do comercial.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="section alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Projetos</span>
+          <h2 class="section-title">6 problemas reais e como eu os resolvi</h2>
+          <p class="section-desc">
+            Cada projeto conta o problema, o que eu fiz e o resultado. Se quiser ver por dentro, o botão "Ver detalhes técnicos" abre a explicação completa para quem é da área.
+          </p>
+        </div>
+
+        <div id="projects-grid" class="case-grid"></div>
+      </div>
+    </section>
+
+    <section id="como-trabalho" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Como eu trabalho</span>
+          <h2 class="section-title">Cinco hábitos que sustentam o resultado</h2>
+        </div>
+
+        <ol class="how">
+          <li><strong>Entendo a origem.</strong> De onde vem cada dado, o que cada campo significa e quais são as limitações do sistema.</li>
+          <li><strong>Combino as regras.</strong> O que conta como um contrato, um atraso ou um cancelamento, definido junto com quem usa o número.</li>
+          <li><strong>Construo o fluxo.</strong> Buscar, guardar, tratar e atualizar, com jeito de reprocessar sem duplicar nem perder nada.</li>
+          <li><strong>Preparo para o uso.</strong> Painéis e tabelas simples de usar, para que as equipes não dependam de mim para ler um número.</li>
+          <li><strong>Documento tudo.</strong> O que foi feito, os limites encontrados e o que ainda precisa evoluir.</li>
+        </ol>
+
+        <blockquote class="quote">
+          Engenharia de Dados, para mim, é construir uma base confiável entre a origem da informação e a decisão que depende dela.
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="trajetoria" class="section alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Trajetória</span>
+          <h2 class="section-title">Onde eu trabalhei</h2>
+          <p class="section-desc">
+            Comecei em Business Intelligence e evoluí para a engenharia que fica por trás dos painéis: entender as fontes, estruturar os dados e deixá-los prontos para o uso.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <div>
+                <div class="timeline-company">Incorporadora imobiliária (empresa A)</div>
+                <div class="timeline-role">Engenheiro de Dados e Analytics Engineer</div>
+              </div>
+              <span class="timeline-period">Experiência atual</span>
+            </div>
+            <ul class="timeline-list">
+              <li>Construí o banco de dados analítico do contas a pagar e a plataforma de cobrança e inadimplência no Microsoft Fabric.</li>
+              <li>Automatizei a conciliação bancária e reduzi o fechamento semanal de 26 para 3 dias.</li>
+              <li>Reuni seis plataformas de marketing e vendas em um único painel, atualizado automaticamente.</li>
+              <li>Criei ferramentas para recuperar e documentar relatórios e sistemas antigos durante a migração.</li>
+            </ul>
+          </div>
+
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <div>
+                <div class="timeline-company">Incorporadora imobiliária (empresa B)</div>
+                <div class="timeline-role">Analytics Engineer e especialista em BI, com foco em inteligência comercial e de mercado</div>
+              </div>
+              <span class="timeline-period">Experiência anterior</span>
+            </div>
+            <ul class="timeline-list">
+              <li>Reconstruí 10 anos do histórico de estoque de imóveis, reunindo o sistema de gestão e três CRMs.</li>
+              <li>Organizei as bases de comissões, parecer de crédito, repasses e distratos em camadas (bruta, tratada e pronta para uso).</li>
+              <li>Criei a correção estatística de preços por metro quadrado com o INCC e rotinas de mapas e cálculo de área de terrenos.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ferramentas" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Ferramentas</span>
+          <h2 class="section-title">O que eu uso no dia a dia</h2>
+        </div>
+
+        <div class="tool-groups">
+          <div class="tool-group">
+            <h3>Dados e nuvem</h3>
+            <div class="chips">
+              <span class="chip">Microsoft Fabric</span><span class="chip">BigQuery</span><span class="chip">SQL Server</span><span class="chip">SQL</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <h3>Programação e automação</h3>
+            <div class="chips">
+              <span class="chip">Python</span><span class="chip">PySpark</span><span class="chip">Pandas</span><span class="chip">GitHub Actions</span><span class="chip">Git</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <h3>Painéis e aplicativos</h3>
+            <div class="chips">
+              <span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Streamlit</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <details id="area-tecnica" class="tech-details">
+          <summary>
+            <span>Área técnica: simuladores e detalhamento das tecnologias</span>
+            <small>Para quem é da área e quer ver a lógica funcionando</small>
+          </summary>
+
+          <div class="tech-body">
+            <h3 class="tech-heading">Simuladores</h3>
+            <p class="section-desc">
+              Três exemplos que rodam no navegador com dados fictícios: a comparação semanal do contas a pagar, o portão de segurança da atualização de cobrança e a limpeza de lançamentos na conciliação bancária.
+            </p>
 
       <div class="sim-tabs">
         <button class="sim-tab active" onclick="switchSimulatorTab('dw', this)">
@@ -182,19 +262,11 @@
       </div>
 
       <div id="simulator-Mount" class="simulator-panel"></div>
-    </div>
-  </section>
 
-  <!-- Section: Technical Stack Matrix -->
-  <section id="stack-tecnica" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">COMPETÊNCIAS COMPROVADAS POR CÓDIGO</span>
-        <h2 class="section-title">Matriz de Tecnologias por Finalidade</h2>
-        <p class="section-desc">
-          Nenhuma tecnologia abaixo é listada de forma genérica: cada item está vinculado aos estudos de caso onde foi efetivamente implementado e verificado.
-        </p>
-      </div>
+            <h3 class="tech-heading">Tecnologias, em detalhe</h3>
+            <p class="section-desc">
+              Cada tecnologia abaixo está ligada ao projeto em que foi usada.
+            </p>
 
       <div class="stack-columns">
         <div class="stack-group">
@@ -293,120 +365,71 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Section: Trajectory & Architectural Governance -->
-  <section id="trajetoria" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">CONTEXTO PROFISSIONAL & AUTORIA VERIFICADA</span>
-        <h2 class="section-title">Trajetória em Engenharia de Dados, Analytics & BI</h2>
-        <p class="section-desc">
-          Evolução técnica sustentada pela resolução de problemas reais de integração, conciliação financeira, historização de ERPs mutáveis e governança de plataformas de dados.
-        </p>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-card">
-          <div class="timeline-meta">
-            <div>
-              <div class="timeline-company">Incorporadora imobiliária (empresa A)</div>
-              <div style="color: var(--text-secondary); font-weight: 600; font-size: 0.92rem;">Data Engineer · Analytics Engineer · BI & Data Platform Specialist</div>
-            </div>
-            <span class="timeline-period">EXPERIÊNCIA ATUAL · MICROSOFT FABRIC, BIGQUERY & PYTHON</span>
           </div>
-          <ul class="timeline-list">
-            <li><strong>DW Financeiro (Snapshots & Diff Engine):</strong> Concepção e implementação do Data Warehouse corporativo (<code>wh_dw_financeiro</code>) com captura semanal idempotente de <strong>2.583.883 linhas/foto</strong>, 10 dimensões acumulativas sem órfãos (87.876 fornecedores) e motor SQL de diff de parcelas e fatias de rateio (<code>snap.mudanca_parcela</code> e <code>cur.mudanca_parcela</code>).</li>
-            <li><strong>Lakehouse Recebíveis & Inadimplência:</strong> Arquitetura Medallion completa no Microsoft Fabric (26 tabelas Bronze/Silver, 19 tabelas de foto crua mensal com ~29,56M linhas/mês, 25 tabelas Gold), controle transacional ACID, gate de cobertura <code>&gt;= 99,5%</code> e <strong>100% de paridade célula a célula (2.826/2.826 células)</strong>.</li>
-            <li><strong>Motor de Conciliação Bancária:</strong> Recálculo independente das 5 pernas do razão contábil com batimento em <strong>6.330/6.330 conta×dias</strong>, expurgo seletivo de <strong>6.596 pares transitórios</strong> (preservando 20 casos unilaterais), auditoria de 42 snapshots descobrindo 2.261 validações <em>in-place</em> e redução do fechamento semanal de <strong>26 dias para 3 dias</strong>.</li>
-            <li><strong>Marketing & CRM Cloud + Painel do Milhão:</strong> Orquestração serverless via GitHub Actions integrando 6 APIs ao BigQuery e Azure OneLake, motor de taxonomia regex com <code>@lru_cache</code>, convergência de compensação bancária tardia (resgatando 986 clientes) e Data Apps Streamlit com redução de <strong>~60% de memória RAM</strong>.</li>
-            <li><strong>Engenharia Reversa, Governança & Auditoria Técnica:</strong> Desenvolvimento de parser binário de arquivos <code>.qvd</code> em NumPy bitwise (varrendo <strong>654 milhões de linhas</strong> em 81,6 GB), auditoria estática de 44 relatórios PBIR/TMDL (4.994 medidas DAX, capturando 171 conflitos homônimos), construção do catálogo Obsidian Vault (300 notas verificadas) e condução da auditoria arquitetural e de segurança (102 pontos catalogados) na transição do portal corporativo.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-card">
-          <div class="timeline-meta">
-            <div>
-              <div class="timeline-company">Incorporadora imobiliária (empresa B)</div>
-              <div style="color: var(--text-secondary); font-weight: 600; font-size: 0.92rem;">Analytics Engineer · BI Specialist · Inteligência Comercial e de Mercado</div>
-            </div>
-            <span class="timeline-period">EXPERIÊNCIA ANTERIOR · PYTHON, SQL, ETL/ELT & POWER BI</span>
-          </div>
-          <ul class="timeline-list">
-            <li><strong>Máquina do Tempo do Fechamento Comercial (2017–2026):</strong> Engenharia de estados que reconciliou 10 anos de histórico entre o ERP Sienge e 3 CRMs (Anapro, Dynamics 365 e Construtor de Vendas), resolvendo anomalias cronológicas entre distratos tardios e revendas de unidades.</li>
-            <li><strong>Arquitetura Medallion Local para Esteira Comercial:</strong> Estruturação das camadas Bronze, Silver e Gold para Comissões, Parecer de Crédito, Repasse Associativo e Distratos, incluindo parser tolerante a falhas para ~250 MB de arquivos históricos de bônus.</li>
-            <li><strong>Modelagem Estatística INCC & Enriquecimento Geoespacial:</strong> Criação do motor de suavização de outliers de preço/$\text{m}^2$ em 3 faixas acoplado à API OData4 do Banco Central (INCC defasado em +2 meses), além de algoritmos de distância esférica de Haversine, dispersão polar vetorizada sem colisão espacial e cálculo de área de terrenos via Fórmula de Gauss/Shoelace.</li>
-          </ul>
-        </div>
+        </details>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Footer & Contact Section -->
   <footer id="contato" class="footer">
     <div class="container">
       <div class="section-header" style="margin-bottom: 1rem;">
-        <span class="section-tag">CONEXÃO DIRETA & REPOSITÓRIOS</span>
-        <h2 class="section-title">Contato & Canais Profissionais</h2>
+        <span class="section-tag">Contato</span>
+        <h2 class="section-title">Vamos conversar?</h2>
         <p class="section-desc">
-          Interessado em discutir arquiteturas de Engenharia de Dados, Microsoft Fabric, Data Warehousing, BigQuery ou Analytics Engineering? Entre em contato pelos canais abaixo:
+          Se você tem dados espalhados, números que ninguém confia ou relatórios que demoram demais, me chame. Respondo com prazer.
         </p>
       </div>
 
-      <div id="copy-toast" style="display:none; margin-bottom: 1rem; padding: 0.5rem 1rem; background: rgba(16,185,129,0.2); border: 1px solid var(--accent-emerald); color: var(--accent-emerald); border-radius: 6px; font-family: var(--font-mono); font-size: 0.8rem;"></div>
+      <div id="copy-toast" role="status" aria-live="polite" style="display:none; margin-bottom: 1rem; padding: 0.5rem 1rem; background: rgba(16,185,129,0.2); border: 1px solid var(--accent-emerald); color: var(--accent-emerald); border-radius: 6px; font-size: 0.85rem;"></div>
 
       <div class="contact-cards">
         <div class="contact-card">
-          <span class="contact-label">GitHub (Repositórios & Demos)</span>
+          <span class="contact-label">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/pedro-eduardo-carneiro-moura-183612179/" target="_blank" rel="noopener noreferrer" class="contact-val">
+            Pedro Eduardo Carneiro Moura ↗
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <span class="contact-label">E-mail</span>
+          <div class="contact-row">
+            <a href="mailto:pedroeduardo8577@gmail.com" class="contact-val" id="contact-email">pedroeduardo8577@gmail.com</a>
+            <button type="button" class="btn btn-outline btn-sm" onclick="copyContact(document.getElementById('contact-email').textContent, 'E-mail')">Copiar</button>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <span class="contact-label">Telefone e WhatsApp</span>
+          <div class="contact-row">
+            <a href="tel:+5562985955399" class="contact-val" id="contact-phone">+55 (62) 98595-5399</a>
+            <button type="button" class="btn btn-outline btn-sm" onclick="copyContact(document.getElementById('contact-phone').textContent, 'Telefone')">Copiar</button>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <span class="contact-label">GitHub</span>
           <a href="https://github.com/PedroEdus" target="_blank" rel="noopener noreferrer" class="contact-val">
             github.com/PedroEdus ↗
           </a>
         </div>
-
-        <div class="contact-card">
-          <span class="contact-label">LinkedIn</span>
-          <a href="https://www.linkedin.com/in/pedro-eduardo-carneiro-moura-183612179/" target="_blank" rel="noopener noreferrer" class="contact-val">
-            linkedin.com/in/pedro-eduardo-carneiro-moura-183612179 ↗
-          </a>
-        </div>
-
-        <div class="contact-card">
-          <span class="contact-label">E-mail Direto</span>
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem;">
-            <a href="mailto:pedroeduardo8577@gmail.com" class="contact-val" id="contact-email">pedroeduardo8577@gmail.com</a>
-            <button class="btn btn-outline btn-sm" onclick="copyContact(document.getElementById('contact-email').textContent, 'E-mail')">Copiar</button>
-          </div>
-        </div>
-
-        <div class="contact-card">
-          <span class="contact-label">Telefone / WhatsApp</span>
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem;">
-            <a href="tel:+5562985955399" class="contact-val" id="contact-phone">+55 (62) 98595-5399</a>
-            <button class="btn btn-outline btn-sm" onclick="copyContact(document.getElementById('contact-phone').textContent, 'Telefone')">Copiar</button>
-          </div>
-        </div>
       </div>
 
-      <div style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: var(--text-muted);">
-        <div>
-          © 2026 Pedro Eduardo Carneiro Moura · Portfólio Técnico de Engenharia de Dados & Analytics Engineering.
-        </div>
-        <div style="font-family: var(--font-mono);">
-          Pronto para GitHub Pages (<code>PedroEdus/portifolio</code>) · Zero Dependências de Build
-        </div>
+      <div class="footer-bottom">
+        <div>© 2026 Pedro Eduardo Carneiro Moura · Engenharia de Dados</div>
+        <div>Exemplos com dados fictícios · <a class="contact-val" href="https://github.com/PedroEdus/portifolio" target="_blank" rel="noopener noreferrer">código deste site ↗</a></div>
       </div>
     </div>
   </footer>
 
-  <!-- Deep-Dive Project Modal -->
-  <div id="project-modal" class="modal-backdrop" role="dialog" aria-modal="true">
+  <div id="project-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Detalhes técnicos do projeto">
     <div class="modal-content">
-      <button class="modal-close" onclick="closeProjectModal()">✕ FECHAR [ESC]</button>
+      <button type="button" class="modal-close" onclick="closeProjectModal()">✕ Fechar (Esc)</button>
       <div id="modal-body"></div>
     </div>
   </div>
 
   <script src="assets/js/app.js"></script>
+  <script src="assets/js/cases.js"></script>
 </body>
 </html>
