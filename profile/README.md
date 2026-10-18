@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./Do%20Dado%20Bruto%20%C3%A0%20Decis%C3%A3o.png" alt="Pedro Eduardo C. Moura — Analytics Engineering e Data Engineering" width="100%" />
+</p>
+
 # Pedro Eduardo
 ### Engenharia de Dados · Analytics Engineering · Data Platforms
 
