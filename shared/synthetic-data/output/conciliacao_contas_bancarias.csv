@@ -1,0 +1,5 @@
+cod_empresa,nome_spe,cod_banco,conta_bancaria,tipo_conta,saldo_inicial_base
+101,SPE-101 Horizonte,341,CC-101-001,CONTA_CORRENTE,150000.0
+102,SPE-102 Parque das Águas,1,CC-102-001,CONTA_CORRENTE,280000.0
+103,SPE-103 Reserva do Sol,237,CC-103-001,CONTA_CORRENTE,95000.0
+101,SPE-101 Horizonte,341,CDB-101-999,CONTA_APLICACAO,1250000.0

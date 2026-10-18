@@ -1,0 +1,257 @@
+{
+  "confidentiality_notice": "CONFIDENTIALITY NOTICE: 100% synthetic data generated with numpy.random.default_rng(42). No real corporate, financial, or customer data is used or exposed.",
+  "engine": "duckdb",
+  "transactional_control": {
+    "id_rodada": 1,
+    "data_referencia": "2026-01-01",
+    "status_rodada": "PUBLICADA",
+    "cobertura_calc_pct": 100.0,
+    "aceitar_calc_defasada": true,
+    "mensagem": "APROVADO: Cobertura de chaves=100.00% (cálculo no dia=100.00%, aceitar_calc_defasada=True)."
+  },
+  "idempotent_day1_snapshot": {
+    "data_foto": "2026-01-01",
+    "count_first_execution": 240,
+    "count_second_execution_replace_where": 240,
+    "idempotent_verified": true
+  },
+  "silver_layer_counts": {
+    "silver_contas_receber": 480,
+    "silver_cessoes": 12,
+    "silver_distratos": 24
+  },
+  "gold_audit_metrics": {
+    "total_carteira_rows": 480,
+    "custas_isoladas_tipo_1": 48,
+    "parcelas_com_atraso_mascarado_por_prorrogacao": 46,
+    "distratos_brutos_erp": 24,
+    "cessoes_tipo_mnt_2_expurgadas_de_distratos": 12,
+    "distratos_reais_auditados_gold": 12,
+    "bronze_to_gold_100pct_cell_parity": true
+  },
+  "roll_rate_matrix_m_to_m1": [
+    {
+      "faixa_origem_m": "00_A_VENCER",
+      "status_destino_m1": "em_aberto",
+      "estado_destino_roll_rate": "em_aberto:00_A_VENCER",
+      "qtd_parcelas": 7,
+      "vlr_base_origem_m": 19126.92,
+      "vlr_remanescente_m1": 19126.92,
+      "taxa_transicao_qtd_pct": 21.88
+    },
+    {
+      "faixa_origem_m": "00_A_VENCER",
+      "status_destino_m1": "em_aberto",
+      "estado_destino_roll_rate": "em_aberto:01_001_030",
+      "qtd_parcelas": 9,
+      "vlr_base_origem_m": 19696.14,
+      "vlr_remanescente_m1": 19934.93,
+      "taxa_transicao_qtd_pct": 28.12
+    },
+    {
+      "faixa_origem_m": "00_A_VENCER",
+      "status_destino_m1": "pago",
+      "estado_destino_roll_rate": "pago",
+      "qtd_parcelas": 12,
+      "vlr_base_origem_m": 32309.44,
+      "vlr_remanescente_m1": 0.0,
+      "taxa_transicao_qtd_pct": 37.5
+    },
+    {
+      "faixa_origem_m": "00_A_VENCER",
+      "status_destino_m1": "renegociado",
+      "estado_destino_roll_rate": "renegociado",
+      "qtd_parcelas": 4,
+      "vlr_base_origem_m": 8396.87,
+      "vlr_remanescente_m1": 0.0,
+      "taxa_transicao_qtd_pct": 12.5
+    },
+    {
+      "faixa_origem_m": "01_001_030",
+      "status_destino_m1": "cancelado",
+      "estado_destino_roll_rate": "cancelado",
+      "qtd_parcelas": 4,
+      "vlr_base_origem_m": 10594.68,
+      "vlr_remanescente_m1": 0.0,
+      "taxa_transicao_qtd_pct": 10.0
+    },
+    {
+      "faixa_origem_m": "01_001_030",
+      "status_destino_m1": "em_aberto",
+      "estado_destino_roll_rate": "em_aberto:02_031_060",
+      "qtd_parcelas": 24,
+      "vlr_base_origem_m": 54306.83,
+      "vlr_remanescente_m1": 55639.89,
+      "taxa_transicao_qtd_pct": 60.0
+    },
+    {
+      "faixa_origem_m": "01_001_030",
+      "status_destino_m1": "pago",
+      "estado_destino_roll_rate": "pago",
+      "qtd_parcelas": 8,
+      "vlr_base_origem_m": 18363.14,
+      "vlr_remanescente_m1": 0.0,
+      "taxa_transicao_qtd_pct": 20.0
+    },
+    {
+      "faixa_origem_m": "01_001_030",
+      "status_destino_m1": "renegociado",
+      "estado_destino_roll_rate": "renegociado",
+      "qtd_parcelas": 4,
+      "vlr_base_origem_m": 7909.29,
+      "vlr_remanescente_m1": 0.0,
+      "taxa_transicao_qtd_pct": 10.0
+    },
+    {
+      "faixa_origem_m": "02_031_060",
+      "status_destino_m1": "em_aberto",
+      "estado_destino_roll_rate": "em_aberto:03_061_090",
+      "qtd_parcelas": 16,
+      "vlr_base_origem_m": 42864.18,
+      "vlr_remanescente_m1": 43889.6,
+      "taxa_transicao_qtd_pct": 50.0
+    },
+    {
+      "faixa_origem_m": "02_031_060",
+      "status_destino_m1": "pago",
+      "estado_destino_roll_rate": "pago",
+      "qtd_parcelas": 12,
+      "vlr_base_origem_m": 31205.07,
+      "vlr_remanescente_m1": 0.0,
+      "taxa_transicao_qtd_pct": 37.5
+    },
+    {
+      "faixa_origem_m": "02_031_060",
+      "status_destino_m1": "renegociado",
+      "estado_destino_roll_rate": "renegociado",
+      "qtd_parcelas": 4,
+      "vlr_base_origem_m": 9615.81,
+      "vlr_remanescente_m1": 0.0,
+      "taxa_transicao_qtd_pct": 12.5
+    },
+    {
+      "faixa_origem_m": "03_061_090",
+      "status_destino_m1": "cancelado",
+      "estado_destino_roll_rate": "cancelado",
+      "qtd_parcelas": 4,
+      "vlr_base_origem_m": 11579.48,
+      "vlr_remanescente_m1": 0.0,
+      "taxa_transicao_qtd_pct": 10.0
+    },
+    {
+      "faixa_origem_m": "03_061_090",
+      "status_destino_m1": "em_aberto",
+      "estado_destino_roll_rate": "em_aberto:04_091_180",
+      "qtd_parcelas": 24,
+      "vlr_base_origem_m": 60947.93,
+      "vlr_remanescente_m1": 62372.85,
+      "taxa_transicao_qtd_pct": 60.0
+    },
+    {
+      "faixa_origem_m": "03_061_090",
+      "status_destino_m1": "pago",
+      "estado_destino_roll_rate": "pago",
+      "qtd_parcelas": 8,
+      "vlr_base_origem_m": 18571.05,
+      "vlr_remanescente_m1": 0.0,
+      "taxa_transicao_qtd_pct": 20.0
+    },
+    {
+      "faixa_origem_m": "03_061_090",
+      "status_destino_m1": "renegociado",
+      "estado_destino_roll_rate": "renegociado",
+      "qtd_parcelas": 4,
+      "vlr_base_origem_m": 9680.77,
+      "vlr_remanescente_m1": 0.0,
+      "taxa_transicao_qtd_pct": 10.0
+    },
+    {
+      "faixa_origem_m": "04_091_180",
+      "status_destino_m1": "em_aberto",
+      "estado_destino_roll_rate": "em_aberto:04_091_180",
+      "qtd_parcelas": 10,
+      "vlr_base_origem_m": 30461.27,
+      "vlr_remanescente_m1": 31152.47,
+      "taxa_transicao_qtd_pct": 31.25
+    },
+    {
+      "faixa_origem_m": "04_091_180",
+      "status_destino_m1": "em_aberto",
+      "estado_destino_roll_rate": "em_aberto:05_MAIOR_180",
+      "qtd_parcelas": 6,
+      "vlr_base_origem_m": 10321.8,
+      "vlr_remanescente_m1": 10548.27,
+      "taxa_transicao_qtd_pct": 18.75
+    },
+    {
+      "faixa_origem_m": "04_091_180",
+      "status_destino_m1": "pago",
+      "estado_destino_roll_rate": "pago",
+      "qtd_parcelas": 12,
+      "vlr_base_origem_m": 34316.72,
+      "vlr_remanescente_m1": 0.0,
+      "taxa_transicao_qtd_pct": 37.5
+    },
+    {
+      "faixa_origem_m": "04_091_180",
+      "status_destino_m1": "renegociado",
+      "estado_destino_roll_rate": "renegociado",
+      "qtd_parcelas": 4,
+      "vlr_base_origem_m": 7495.59,
+      "vlr_remanescente_m1": 0.0,
+      "taxa_transicao_qtd_pct": 12.5
+    },
+    {
+      "faixa_origem_m": "05_MAIOR_180",
+      "status_destino_m1": "cancelado",
+      "estado_destino_roll_rate": "cancelado",
+      "qtd_parcelas": 4,
+      "vlr_base_origem_m": 13113.96,
+      "vlr_remanescente_m1": 0.0,
+      "taxa_transicao_qtd_pct": 10.0
+    },
+    {
+      "faixa_origem_m": "05_MAIOR_180",
+      "status_destino_m1": "em_aberto",
+      "estado_destino_roll_rate": "em_aberto:05_MAIOR_180",
+      "qtd_parcelas": 24,
+      "vlr_base_origem_m": 76550.16,
+      "vlr_remanescente_m1": 78074.95,
+      "taxa_transicao_qtd_pct": 60.0
+    },
+    {
+      "faixa_origem_m": "05_MAIOR_180",
+      "status_destino_m1": "pago",
+      "estado_destino_roll_rate": "pago",
+      "qtd_parcelas": 8,
+      "vlr_base_origem_m": 17930.9,
+      "vlr_remanescente_m1": 0.0,
+      "taxa_transicao_qtd_pct": 20.0
+    },
+    {
+      "faixa_origem_m": "05_MAIOR_180",
+      "status_destino_m1": "renegociado",
+      "estado_destino_roll_rate": "renegociado",
+      "qtd_parcelas": 4,
+      "vlr_base_origem_m": 12394.41,
+      "vlr_remanescente_m1": 0.0,
+      "taxa_transicao_qtd_pct": 10.0
+    }
+  ],
+  "renegotiation_survival_cohort": [
+    {
+      "cod_safra_renegociacao": "2025-Q2",
+      "total_parcelas_safra": 12,
+      "parcelas_adimplentes_ou_pagas": 12,
+      "vlr_total_safra": 25400.6,
+      "taxa_sobrevivencia_pct": 100.0
+    },
+    {
+      "cod_safra_renegociacao": "2025-Q4",
+      "total_parcelas_safra": 12,
+      "parcelas_adimplentes_ou_pagas": 0,
+      "vlr_total_safra": 35017.32,
+      "taxa_sobrevivencia_pct": 0.0
+    }
+  ]
+}

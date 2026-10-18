@@ -1,0 +1,168 @@
+{
+  "projeto": "case-04-marketing-crm-cloud",
+  "aviso_dados_sinteticos": "100% sinteticos (seed=42) - Nenhuma informacao corporativa real exposta.",
+  "taxonomia_regex_lru_cache": {
+    "amostras_classificadas": [
+      {
+        "campaign_name": "[LANÇAMENTO] Jardins do Cerrado - Aparecida de Goiania - Leads Fev",
+        "cidade": "Aparecida de Goiânia",
+        "uf": "GO",
+        "tipo_lancamento": "LANÇAMENTO"
+      },
+      {
+        "campaign_name": "RMKT | Parque das Águas | Palmas/TO | Estoque Oportunidade",
+        "cidade": "Palmas",
+        "uf": "TO",
+        "tipo_lancamento": "ESTOQUE"
+      },
+      {
+        "campaign_name": "Busca_Institucional_Marca_Corporativo_GO",
+        "cidade": "Não Identificada",
+        "uf": "GO",
+        "tipo_lancamento": "INSTITUCIONAL"
+      },
+      {
+        "campaign_name": "Pre-Lancamento_Reserva_Carajas_Parauapebas_PA_Conversao",
+        "cidade": "Parauapebas",
+        "uf": "PA",
+        "tipo_lancamento": "LANÇAMENTO"
+      },
+      {
+        "campaign_name": "Campanha_Continua_Lotes_Rondonopolis_MT",
+        "cidade": "Rondonópolis",
+        "uf": "MT",
+        "tipo_lancamento": "ESTOQUE"
+      }
+    ],
+    "estatisticas_cache": {
+      "hits": 2,
+      "misses": 5,
+      "maxsize": 4096,
+      "currsize": 5
+    }
+  },
+  "meta_ads_lookback_merge": {
+    "carga_inicial": {
+      "janela_inicio": "2026-10-14",
+      "janela_fim": "2026-10-17",
+      "linhas_staging": 2,
+      "linhas_inseridas": 2,
+      "linhas_atualizadas_lookback": 0,
+      "total_silver_meta_ads": 2
+    },
+    "reprocessamento_lookback_3d": {
+      "janela_inicio": "2026-10-15",
+      "janela_fim": "2026-10-18",
+      "linhas_staging": 2,
+      "linhas_inseridas": 1,
+      "linhas_atualizadas_lookback": 1,
+      "total_silver_meta_ads": 3
+    },
+    "registros_silver_consolidados": [
+      {
+        "account_id": "act_1001",
+        "adset_id": "adset_go_01",
+        "date_start": "2026-10-16",
+        "campaign_name": "[LANÇAMENTO] Jardins do Cerrado - Aparecida de Goiania",
+        "spend": 1250.0,
+        "impressions": 24500,
+        "clicks": 495,
+        "action__lead": 42,
+        "action__onsite_conversion_lead_grouped": 25,
+        "action__offsite_conversion_fb_pixel_lead": 17,
+        "action__onsite_conversion_messaging_lead": 0,
+        "leads_validos": 42,
+        "cidade": "Aparecida de Goiânia",
+        "uf": "GO",
+        "tipo_lancamento": "LANÇAMENTO",
+        "dt_atualizacao": "2026-10-18T06:00:00"
+      },
+      {
+        "account_id": "act_1002",
+        "adset_id": "adset_to_01",
+        "date_start": "2026-10-17",
+        "campaign_name": "RMKT | Parque das Águas | Palmas/TO | Estoque",
+        "spend": 850.0,
+        "impressions": 15000,
+        "clicks": 310,
+        "action__lead": 0,
+        "action__onsite_conversion_lead_grouped": 12,
+        "action__offsite_conversion_fb_pixel_lead": 8,
+        "action__onsite_conversion_messaging_lead": 4,
+        "leads_validos": 24,
+        "cidade": "Palmas",
+        "uf": "TO",
+        "tipo_lancamento": "ESTOQUE",
+        "dt_atualizacao": "2026-10-18T06:00:00"
+      },
+      {
+        "account_id": "act_1001",
+        "adset_id": "adset_go_01",
+        "date_start": "2026-10-18",
+        "campaign_name": "[LANÇAMENTO] Jardins do Cerrado - Aparecida de Goiania",
+        "spend": 1400.0,
+        "impressions": 28000,
+        "clicks": 530,
+        "action__lead": 48,
+        "action__onsite_conversion_lead_grouped": 30,
+        "action__offsite_conversion_fb_pixel_lead": 18,
+        "action__onsite_conversion_messaging_lead": 0,
+        "leads_validos": 48,
+        "cidade": "Aparecida de Goiânia",
+        "uf": "GO",
+        "tipo_lancamento": "LANÇAMENTO",
+        "dt_atualizacao": "2026-10-18T06:00:00"
+      }
+    ]
+  },
+  "crm_protecao_transacional_watermark": {
+    "carga_inicial": {
+      "watermark_anterior": null,
+      "watermark_nova": "2026-10-16T12:00:00",
+      "registros_processados": 1,
+      "total_leads_silver": 1
+    },
+    "falha_parcial_pagina_bloqueada": true,
+    "watermark_antes_falha": "2026-10-16T12:00:00",
+    "watermark_apos_falha_intacta": "2026-10-16T12:00:00",
+    "recuperacao_integra": {
+      "watermark_anterior": "2026-10-16T12:00:00",
+      "watermark_nova": "2026-10-18T15:00:00",
+      "registros_processados": 2,
+      "total_leads_silver": 3
+    }
+  },
+  "ga4_detector_granular_lacunas": {
+    "rodada_1_preenchimento": {
+      "total_grade_esperada": 4,
+      "lacunas_consultadas_na_api": 4,
+      "pares_gravados_com_trafego": 3,
+      "pares_gravados_zero_legitimo": 1
+    },
+    "rodada_2_zero_reconsultas": {
+      "total_grade_esperada": 4,
+      "lacunas_consultadas_na_api": 0,
+      "pares_gravados_com_trafego": 0,
+      "pares_gravados_zero_legitimo": 0
+    }
+  },
+  "otimizacao_memoria_ram_streamlit": {
+    "linhas": 12000,
+    "colunas_totais": 7,
+    "colunas_convertidas_category": [
+      "empreendimento_nome",
+      "etapa_funil_comercial",
+      "canal_aquisicao_midia",
+      "status_elegibilidade_campanha",
+      "uf_regional"
+    ],
+    "qtd_colunas_convertidas": 5,
+    "bytes_antes": 4964132,
+    "bytes_depois": 255098,
+    "reducao_percentual_ram": 94.86
+  },
+  "componentes_ui_validados": {
+    "svg_data_uri_prefix": "data:image/svg+xml;base64,PHN2ZyB4b",
+    "tamanho_html_matriz_details": 1233
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "case_study": "projeto-05-engenharia-reversa-bi",
+  "qvd_bitstuffed_demo": {
+    "table_name": "FATO_FATURAMENTO_ERP",
+    "no_of_records": 6,
+    "record_byte_size": 2,
+    "binary_size_bytes": 1530,
+    "dropped_pii_columns": [
+      "CPF_CLIENTE"
+    ],
+    "decoded_columns": {
+      "COD_FILIAL": [
+        101,
+        102,
+        101,
+        103,
+        102,
+        101
+      ],
+      "STATUS_PEDIDO": [
+        "FATURADO",
+        "PENDENTE",
+        "FATURADO",
+        "CANCELADO",
+        null,
+        "FATURADO"
+      ],
+      "VALOR_LIQUIDO": [
+        15400.5,
+        8200.0,
+        15400.5,
+        0.0,
+        9100.75,
+        22300.0
+      ]
+    },
+    "fields_metadata": [
+      {
+        "field_name": "COD_FILIAL",
+        "bit_offset": 0,
+        "bit_width": 2,
+        "bias": 0,
+        "no_of_symbols": 3
+      },
+      {
+        "field_name": "STATUS_PEDIDO",
+        "bit_offset": 2,
+        "bit_width": 3,
+        "bias": -2,
+        "no_of_symbols": 3
+      },
+      {
+        "field_name": "VALOR_LIQUIDO",
+        "bit_offset": 5,
+        "bit_width": 3,
+        "bias": 0,
+        "no_of_symbols": 5
+      },
+      {
+        "field_name": "CPF_CLIENTE",
+        "bit_offset": 8,
+        "bit_width": 2,
+        "bias": 0,
+        "no_of_symbols": 4
+      }
+    ]
+  },
+  "pbir_dax_audit_demo": {
+    "total_reports_scanned": 3,
+    "total_measures_scanned": 5,
+    "homonymous_conflicts_count": 1,
+    "homonymous_conflicts": [
+      {
+        "measure_name": "Receita Líquida",
+        "distinct_formulas": {
+          "CALCULATE(SUM(Fato[ValorBruto]) - SUM(Fato[Impostos]), Fato[Status] = \"FATURADO\")": [
+            "Comercial_Corporativo.pbix"
+          ],
+          "CALCULATE(SUM(Fato[ValorBruto]) - SUM(Fato[Impostos]) - SUM(Fato[Devolucoes]), Fato[Status] = \"FATURADO\")": [
+            "Diretoria_Financeira.pbix"
+          ]
+        }
+      }
+    ],
+    "invalid_date_literals": [
+      {
+        "report_name": "Planejamento_Safra.pbix",
+        "measure_name": "Meta Safra Corte Setembro",
+        "raw_literal": "DATE(2026, 9, 31)",
+        "year": 2026,
+        "month": 9,
+        "day": 31,
+        "reason": "Dia inexistente (31/09/2026): o mês 09/2026 possui no máximo 30 dias (causa deslocamento silencioso no motor DAX)."
+      }
+    ],
+    "exclusion_conflicts": [
+      {
+        "target_column": "DimOperacao[CFOP]",
+        "exclusions_by_report": {
+          "Comercial_Corporativo.pbix::Vendas Sem Expurgos": [
+            "5910",
+            "5949"
+          ],
+          "Diretoria_Financeira.pbix::Vendas Sem Expurgos Diretoria": [
+            "5910",
+            "5949",
+            "6910"
+          ]
+        }
+      }
+    ],
+    "suspicious_credential_tables": [
+      {
+        "report_name": "Diretoria_Financeira.pbix",
+        "table_name": "DIM_Senhas",
+        "severity": "CRITICAL_SECURITY_RISK",
+        "description": "Tabela sensível de autenticação 'DIM_Senhas' exposta no modelo semântico."
+      },
+      {
+        "report_name": "Planejamento_Safra.pbix",
+        "table_name": "Dados de Login",
+        "severity": "CRITICAL_SECURITY_RISK",
+        "description": "Tabela sensível de autenticação 'Dados de Login' exposta no modelo semântico."
+      }
+    ]
+  },
+  "vault_epistemic_verifier_demo": {
+    "approved_note": {
+      "note_id": "MOD-001-AUDITORIA-BI",
+      "is_valid": true,
+      "epistemic_tags_found": [
+        "CONFIRMADO",
+        "PROVÁVEL"
+      ],
+      "unbacked_numbers": [],
+      "pii_violations": [],
+      "errors": []
+    },
+    "blocked_note": {
+      "note_id": "RASCUNHO-VAZAMENTO",
+      "is_valid": false,
+      "epistemic_tags_found": [],
+      "unbacked_numbers": [
+        "999999"
+      ],
+      "pii_violations": [
+        "CPF: '123.456.789-00'",
+        "EMAIL: 'joao.silva@empresa.com.br'",
+        "QLIK_XPASSWORD: 'XPassword=Segredo123'"
+      ],
+      "errors": [
+        "Nota não possui tag de qualificação epistêmica obrigatória (CONFIRMADO, PROVÁVEL ou HIPÓTESE).",
+        "Detectados 3 vazamentos de PII/credenciais na nota técnica.",
+        "Números sem lastro no manifesto de evidências: 999999."
+      ]
+    }
+  }
+}

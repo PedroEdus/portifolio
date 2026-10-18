@@ -1,0 +1,36 @@
+# Configuração de Exemplo — Plataforma Cloud de Marketing & CRM
+# Todos os parâmetros abaixo utilizam valores sintéticos para demonstração local.
+
+gcp_bigquery_emulation:
+  project_id: "portfolio-marketing-analytics-demo"
+  dataset_silver: "marketing_silver"
+  dataset_gold: "marketing_gold"
+
+meta_ads:
+  api_version: "v19.0"
+  lookback_days: 3
+  merge_keys:
+    - account_id
+    - adset_id
+    - date_start
+  lead_precedence:
+    primary_field: "action__lead"
+    fallback_fields:
+      - "action__onsite_conversion_lead_grouped"
+      - "action__offsite_conversion_fb_pixel_lead"
+      - "action__onsite_conversion_messaging_lead"
+
+ga4:
+  gap_detection_window_days: 120
+  record_zero_row_sentinel: true
+
+crm_api:
+  watermark_column: "data_alteracao"
+  page_size: 100
+  transactional_page_guard: true
+
+memory_optimization:
+  low_cardinality_threshold_ratio: 0.50
+  cache_windows_brt:
+    - "08:20"
+    - "15:20"

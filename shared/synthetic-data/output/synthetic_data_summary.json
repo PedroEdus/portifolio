@@ -1,0 +1,170 @@
+{
+  "metadata": {
+    "seed": 42,
+    "generator": "numpy.random.default_rng(42)",
+    "confidentiality_notice": "CONFIDENTIALITY NOTICE: 100% synthetic data generated with numpy.random.default_rng(42). No real corporate, financial, or customer data is used or exposed."
+  },
+  "counts": {
+    "spes": 5,
+    "contas_receber": 480,
+    "contas_receber_calc": 480,
+    "cessoes": 12,
+    "distratos": 24,
+    "contas_bancarias": 4,
+    "extrato_bancario": 34,
+    "perna_recebepgto": 121,
+    "snapshots_ciclo": 9,
+    "campanhas_marketing": 16
+  },
+  "samples": {
+    "spes": [
+      {
+        "cod_empresa": 101,
+        "nome_spe": "SPE-101 Horizonte",
+        "uf": "GO",
+        "cidade": "Goiânia",
+        "total_lotes": 850,
+        "status_empreendimento": "Em Carteira Ativa"
+      },
+      {
+        "cod_empresa": 102,
+        "nome_spe": "SPE-102 Parque das Águas",
+        "uf": "TO",
+        "cidade": "Palmas",
+        "total_lotes": 1200,
+        "status_empreendimento": "Em Carteira Ativa"
+      },
+      {
+        "cod_empresa": 103,
+        "nome_spe": "SPE-103 Reserva do Sol",
+        "uf": "PA",
+        "cidade": "Marabá",
+        "total_lotes": 640,
+        "status_empreendimento": "Em Carteira Ativa"
+      }
+    ],
+    "contas_receber": [
+      {
+        "DataFoto": "2026-01-01",
+        "Empresa_prc": 102,
+        "Obra_prc": "OBR-102",
+        "NumVend_prc": 10000,
+        "NumParc_prc": 2,
+        "ChaveParcela": "102-OBR-102-10000-2",
+        "TipoParc_prc": "0",
+        "DtVencOrig_prc": "2025-12-29",
+        "DtVencAtu_prc": "2025-12-29",
+        "ValorNom_prc": 2208.02,
+        "Status_prc": "EM_ABERTO",
+        "DataBaixa_prc": null,
+        "FlagReneg_prc": 0,
+        "FlagCancel_prc": 0,
+        "SafraReneg": null
+      },
+      {
+        "DataFoto": "2026-02-01",
+        "Empresa_prc": 102,
+        "Obra_prc": "OBR-102",
+        "NumVend_prc": 10000,
+        "NumParc_prc": 2,
+        "ChaveParcela": "102-OBR-102-10000-2",
+        "TipoParc_prc": "0",
+        "DtVencOrig_prc": "2025-12-29",
+        "DtVencAtu_prc": "2025-12-29",
+        "ValorNom_prc": 2208.02,
+        "Status_prc": "CANCELADO",
+        "DataBaixa_prc": "2026-01-22",
+        "FlagReneg_prc": 0,
+        "FlagCancel_prc": 1,
+        "SafraReneg": null
+      },
+      {
+        "DataFoto": "2026-01-01",
+        "Empresa_prc": 103,
+        "Obra_prc": "OBR-103",
+        "NumVend_prc": 10001,
+        "NumParc_prc": 3,
+        "ChaveParcela": "103-OBR-103-10001-3",
+        "TipoParc_prc": "0",
+        "DtVencOrig_prc": "2025-11-09",
+        "DtVencAtu_prc": "2025-11-09",
+        "ValorNom_prc": 3698.02,
+        "Status_prc": "EM_ABERTO",
+        "DataBaixa_prc": null,
+        "FlagReneg_prc": 0,
+        "FlagCancel_prc": 0,
+        "SafraReneg": null
+      }
+    ],
+    "extrato_bancario": [
+      {
+        "cod_empresa": 101,
+        "cod_banco": 341,
+        "conta_bancaria": "CC-101-001",
+        "tipo_conta": "CONTA_CORRENTE",
+        "data_movimento": "2026-04-01",
+        "saldo_inicial": 150000.0,
+        "creditos_extrato": 9052.24,
+        "debitos_extrato": 1445.43,
+        "saldo_final": 157606.81
+      },
+      {
+        "cod_empresa": 101,
+        "cod_banco": 341,
+        "conta_bancaria": "CC-101-001",
+        "tipo_conta": "CONTA_CORRENTE",
+        "data_movimento": "2026-04-02",
+        "saldo_inicial": 157606.81,
+        "creditos_extrato": 12533.65,
+        "debitos_extrato": 1741.45,
+        "saldo_final": 168399.01
+      },
+      {
+        "cod_empresa": 101,
+        "cod_banco": 341,
+        "conta_bancaria": "CC-101-001",
+        "tipo_conta": "CONTA_CORRENTE",
+        "data_movimento": "2026-04-06",
+        "saldo_inicial": 168399.01,
+        "creditos_extrato": 11429.78,
+        "debitos_extrato": 1342.09,
+        "saldo_final": 178486.7
+      }
+    ],
+    "campanhas_marketing": [
+      {
+        "id_campanha": "CMP-2026-01",
+        "nome_campanha": "Feirão Lote Novo Horizonte",
+        "cod_empresa": 101,
+        "canal": "Meta Ads",
+        "investimento_brl": 22687.97,
+        "impressoes": 225007,
+        "cliques": 9170,
+        "leads_gerados": 1317,
+        "contratos_fechados": 46
+      },
+      {
+        "id_campanha": "CMP-2026-01",
+        "nome_campanha": "Feirão Lote Novo Horizonte",
+        "cod_empresa": 101,
+        "canal": "Google Search",
+        "investimento_brl": 27427.13,
+        "impressoes": 165691,
+        "cliques": 6268,
+        "leads_gerados": 967,
+        "contratos_fechados": 36
+      },
+      {
+        "id_campanha": "CMP-2026-01",
+        "nome_campanha": "Feirão Lote Novo Horizonte",
+        "cod_empresa": 101,
+        "canal": "TikTok Ads",
+        "investimento_brl": 15084.07,
+        "impressoes": 182596,
+        "cliques": 7815,
+        "leads_gerados": 1072,
+        "contratos_fechados": 85
+      }
+    ]
+  }
+}

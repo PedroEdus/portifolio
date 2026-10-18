@@ -1,0 +1,34 @@
+# Configuração de Exemplo — DW Financeiro (wh_dw_financeiro)
+# Todos os parâmetros abaixo utilizam valores sintéticos para demonstração local.
+
+warehouse:
+  name: "wh_dw_financeiro_demo"
+  collation: "Latin1_General_100_CI_AS_KS_WS_SC_UTF8"
+  timezone: "America/Sao_Paulo"
+  schemas:
+    control: "ctl"
+    staging: "stg"
+    snapshot: "snap"
+    current: "cur"
+    dimension: "dim"
+
+snapshot_policy:
+  weekly_schedule_cron: "0 8 * * 0"   # Todo domingo às 08:00 BRT
+  daily_cur_cron: "0 7 * * 1-6"       # Segunda a sábado às 07:00 BRT
+  block_retroactive_snapshots: true
+  allow_reprocess_latest_snapshot: true
+
+contract_guard:
+  required_columns:
+    - empresa_cod
+    - obra_cod
+    - processo_num
+    - parcela_num
+    - item_num
+    - cap_cod
+    - insumo_cod
+    - fornecedor_cod
+    - valor_fatia
+    - data_vencimento
+    - status_parcela
+    - descricao_item

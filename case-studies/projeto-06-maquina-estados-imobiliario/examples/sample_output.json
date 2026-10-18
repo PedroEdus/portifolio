@@ -1,0 +1,206 @@
+{
+  "case_study": "projeto-06-maquina-estados-imobiliario",
+  "fotografia_mensal_estoque": [
+    {
+      "id_unidade": "TORRE-A-101",
+      "empreendimento": "Residencial Reserva Flamboyant",
+      "competencia": "2025-01",
+      "estado_estoque": "Vendida",
+      "contrato_vigente": 1001.0,
+      "teve_conflito_corrigido": false
+    },
+    {
+      "id_unidade": "TORRE-A-101",
+      "empreendimento": "Residencial Reserva Flamboyant",
+      "competencia": "2025-02",
+      "estado_estoque": "Vendida",
+      "contrato_vigente": 1001.0,
+      "teve_conflito_corrigido": false
+    },
+    {
+      "id_unidade": "TORRE-A-101",
+      "empreendimento": "Residencial Reserva Flamboyant",
+      "competencia": "2025-03",
+      "estado_estoque": "Vendida",
+      "contrato_vigente": 1002.0,
+      "teve_conflito_corrigido": true
+    },
+    {
+      "id_unidade": "TORRE-A-101",
+      "empreendimento": "Residencial Reserva Flamboyant",
+      "competencia": "2025-04",
+      "estado_estoque": "Vendida",
+      "contrato_vigente": 1002.0,
+      "teve_conflito_corrigido": true
+    },
+    {
+      "id_unidade": "TORRE-A-101",
+      "empreendimento": "Residencial Reserva Flamboyant",
+      "competencia": "2025-05",
+      "estado_estoque": "Vendida",
+      "contrato_vigente": 1002.0,
+      "teve_conflito_corrigido": true
+    },
+    {
+      "id_unidade": "TORRE-A-102",
+      "empreendimento": "Residencial Reserva Flamboyant",
+      "competencia": "2025-01",
+      "estado_estoque": "Permutante",
+      "contrato_vigente": NaN,
+      "teve_conflito_corrigido": false
+    },
+    {
+      "id_unidade": "TORRE-A-102",
+      "empreendimento": "Residencial Reserva Flamboyant",
+      "competencia": "2025-02",
+      "estado_estoque": "Permutante",
+      "contrato_vigente": NaN,
+      "teve_conflito_corrigido": false
+    },
+    {
+      "id_unidade": "TORRE-A-102",
+      "empreendimento": "Residencial Reserva Flamboyant",
+      "competencia": "2025-03",
+      "estado_estoque": "Permutante",
+      "contrato_vigente": NaN,
+      "teve_conflito_corrigido": false
+    },
+    {
+      "id_unidade": "TORRE-A-102",
+      "empreendimento": "Residencial Reserva Flamboyant",
+      "competencia": "2025-04",
+      "estado_estoque": "Permutante",
+      "contrato_vigente": NaN,
+      "teve_conflito_corrigido": false
+    },
+    {
+      "id_unidade": "TORRE-A-102",
+      "empreendimento": "Residencial Reserva Flamboyant",
+      "competencia": "2025-05",
+      "estado_estoque": "Permutante",
+      "contrato_vigente": NaN,
+      "teve_conflito_corrigido": false
+    }
+  ],
+  "suavizacao_incc_precos": [
+    {
+      "empreendimento": "Mansões Gamma",
+      "cluster_area": "CLUSTER_Q3",
+      "competencia": "2025-01",
+      "preco_m2_observado": 15000.0,
+      "mediana_movel_365d": 15000.0,
+      "preco_curva_cluster_incc": 15000.0,
+      "desvio_relativo_365d": 0.0,
+      "regra_suavizacao": "FAIXA_1_ORIGINAL_ATE_10PCT",
+      "preco_m2_suavizado": 15000.0
+    },
+    {
+      "empreendimento": "Parque Beta",
+      "cluster_area": "CLUSTER_Q3",
+      "competencia": "2025-01",
+      "preco_m2_observado": 12000.0,
+      "mediana_movel_365d": 12000.0,
+      "preco_curva_cluster_incc": 15000.0,
+      "desvio_relativo_365d": 0.0,
+      "regra_suavizacao": "FAIXA_1_ORIGINAL_ATE_10PCT",
+      "preco_m2_suavizado": 12000.0
+    },
+    {
+      "empreendimento": "Residencial Alpha",
+      "cluster_area": "CLUSTER_Q1",
+      "competencia": "2025-01",
+      "preco_m2_observado": 10000.0,
+      "mediana_movel_365d": 10000.0,
+      "preco_curva_cluster_incc": 10000.0,
+      "desvio_relativo_365d": 0.0,
+      "regra_suavizacao": "FAIXA_1_ORIGINAL_ATE_10PCT",
+      "preco_m2_suavizado": 10000.0
+    },
+    {
+      "empreendimento": "Residencial Alpha",
+      "cluster_area": "CLUSTER_Q1",
+      "competencia": "2025-02",
+      "preco_m2_observado": 10050.0,
+      "mediana_movel_365d": 10000.0,
+      "preco_curva_cluster_incc": 10060.0,
+      "desvio_relativo_365d": 0.005,
+      "regra_suavizacao": "FAIXA_1_ORIGINAL_ATE_10PCT",
+      "preco_m2_suavizado": 10050.0
+    },
+    {
+      "empreendimento": "Residencial Alpha",
+      "cluster_area": "CLUSTER_Q2",
+      "competencia": "2025-03",
+      "preco_m2_observado": 10400.0,
+      "mediana_movel_365d": 10025.0,
+      "preco_curva_cluster_incc": 10400.0,
+      "desvio_relativo_365d": 0.0374,
+      "regra_suavizacao": "FAIXA_1_ORIGINAL_ATE_10PCT",
+      "preco_m2_suavizado": 10400.0
+    },
+    {
+      "empreendimento": "Residencial Alpha",
+      "cluster_area": "CLUSTER_Q2",
+      "competencia": "2025-04",
+      "preco_m2_observado": 11600.0,
+      "mediana_movel_365d": 10050.0,
+      "preco_curva_cluster_incc": 10457.2,
+      "desvio_relativo_365d": 0.1542,
+      "regra_suavizacao": "FAIXA_2_MEDIANA_365D_10_A_20PCT",
+      "preco_m2_suavizado": 10050.0
+    },
+    {
+      "empreendimento": "Residencial Alpha",
+      "cluster_area": "CLUSTER_Q3",
+      "competencia": "2025-05",
+      "preco_m2_observado": 14500.0,
+      "mediana_movel_365d": 10225.0,
+      "preco_curva_cluster_incc": 15378.52,
+      "desvio_relativo_365d": 0.4181,
+      "regra_suavizacao": "FAIXA_3_CURVA_INCC_ACIMA_20PCT",
+      "preco_m2_suavizado": 15378.52
+    }
+  ],
+  "geoespacial_demo": {
+    "haversine_distancia_km": 1.9571,
+    "area_terreno_shoelace_m2": 5000.03,
+    "coordenadas_dispersas_polar": [
+      {
+        "id_imovel": "IMV-01",
+        "cep": "74810-100",
+        "latitude": -16.7045,
+        "longitude": -49.2646,
+        "ordem_no_ponto": 0,
+        "lat_ajustada": -16.7045,
+        "lon_ajustada": -49.2646
+      },
+      {
+        "id_imovel": "IMV-02",
+        "cep": "74810-100",
+        "latitude": -16.7045,
+        "longitude": -49.2646,
+        "ordem_no_ponto": 1,
+        "lat_ajustada": -16.7045,
+        "lon_ajustada": -49.264459316467814
+      },
+      {
+        "id_imovel": "IMV-03",
+        "cep": "74810-100",
+        "latitude": -16.7045,
+        "longitude": -49.2646,
+        "ordem_no_ponto": 2,
+        "lat_ajustada": -16.70440471971148,
+        "lon_ajustada": -49.264500521720386
+      },
+      {
+        "id_imovel": "IMV-04",
+        "cep": "74810-100",
+        "latitude": -16.7045,
+        "longitude": -49.2646,
+        "ordem_no_ponto": 3,
+        "lat_ajustada": -16.70436525332375,
+        "lon_ajustada": -49.2646
+      }
+    ]
+  }
+}

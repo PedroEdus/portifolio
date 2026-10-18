@@ -1,0 +1,40 @@
+# Configuração Exemplar - Motor de Conciliação Bancária de 5 Pernas Contábeis
+# AVISO: Todos os parâmetros apontam para ambientes e dados 100% sintéticos.
+
+workspace:
+  name: "ws_financeiro"
+  seed: 42
+
+reconciliation_engine:
+  erp_ledger_legs:
+    - "Extrato"
+    - "RecebePgto"
+    - "Depositos"
+    - "EntSaiEmpAplic"
+    - "VwTransfBcoExtrato"
+  balance_equation: "SF = SI + C - D"
+  tolerance_brl: 0.01
+
+rule_r3_intermediation_purge:
+  enabled: true
+  natureza_code: "0071"
+  credit_control_type: 5
+  debit_control_type: 6
+  matching_keys:
+    - "cod_empresa"
+    - "cod_banco"
+    - "conta_bancaria"
+    - "proposta"
+  preserve_unilateral_orphans: true
+
+cycle_audit:
+  open_status_code: 0
+  validated_status_code: 2
+  detect_in_place_overwrite: true
+
+febraban_calendar_and_icp:
+  easter_algorithm: "Meeus/Butcher"
+  icp_denominator_account_type: "CONTA_CORRENTE"
+  exclude_investment_accounts_from_icp: true
+  sentinel_moving_median_business_days: 10
+  sentinel_alert_drop_ratio: 0.80

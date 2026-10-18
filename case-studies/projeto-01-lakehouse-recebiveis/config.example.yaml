@@ -1,0 +1,48 @@
+# Configuração Exemplar - Plataforma Lakehouse Medallion de Recebíveis
+# AVISO: Todos os parâmetros apontam para ambientes e dados 100% sintéticos.
+
+pipeline:
+  name: "lh_recebiveis_medallion"
+  control_schema: "wh_ctl_inad"
+  seed: 42
+
+quality_gates:
+  min_calc_coverage_pct: 99.5
+  aceitar_calc_defasada_dia_1: true
+  enforce_zero_row_loss_silver: true
+  block_on_schema_drift: true
+
+snapshots:
+  foto_mensal_day_of_month: 1
+  partition_key: "data_foto"
+  sample_month_m: "2026-01-01"
+  sample_month_m1: "2026-02-01"
+
+business_rules:
+  custa_parcela_code: "1"
+  cessao_tipo_mnt: 2
+  status_precedence:
+    - "cedido"
+    - "cancelado"
+    - "renegociado"
+    - "pago"
+    - "em_aberto"
+  aging_buckets:
+    - label: "00_A_VENCER"
+      min_days: -999999
+      max_days: 0
+    - label: "01_001_030"
+      min_days: 1
+      max_days: 30
+    - label: "02_031_060"
+      min_days: 31
+      max_days: 60
+    - label: "03_061_090"
+      min_days: 61
+      max_days: 90
+    - label: "04_091_180"
+      min_days: 91
+      max_days: 180
+    - label: "05_MAIOR_180"
+      min_days: 181
+      max_days: 999999
