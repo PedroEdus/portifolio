@@ -16,7 +16,7 @@
       {
         "rank": 3,
         "role": "BI Engineer & Data Apps Specialist",
-        "summary": "Modelos semânticos Direct Lake, auditoria estática de relatórios PBIR/TMDL em larga escala, otimização extrema de DAX e desenvolvimento de Data Apps de alta densidade em Streamlit com redução de ~60% de pegada de memória RAM."
+        "summary": "Modelos semânticos Direct Lake, auditoria estática de relatórios PBIR/TMDL em larga escala, otimização extrema de DAX e desenvolvimento de Data Apps de alta densidade em Streamlit com uso de memória otimizado."
       }
     ],
     "confidentialityNotice": "Compromisso de Sigilo e Propriedade Intelectual: As experiências relatadas referem-se a projetos reais desenvolvidos em duas incorporadoras imobiliárias (empresa A e empresa B). Todos os códigos executáveis, schemas, parâmetros e bases de dados presentes neste portfólio foram 100% reconstruídos com dados sintéticos (gerados determinísticamente com seed=42) para demonstrar exclusivamente o método de engenharia, preservando integralmente o sigilo corporativo e a conformidade com a LGPD.",
@@ -27,39 +27,7 @@
       "email": "pedroeduardo8577@gmail.com",
       "phone": "+55 (62) 98595-5399",
       "location": "Goiânia, GO — Brasil (Remoto / Híbrido)"
-    },
-    "heroStats": [
-      {
-        "value": "654M+",
-        "label": "Registros varridos via parser binário próprio (.qvd NumPy bitwise)",
-        "projectRef": "projeto-05-engenharia-reversa-bi"
-      },
-      {
-        "value": "2,58M",
-        "label": "Linhas/foto no motor de Snapshots & Diff do DW Financeiro (~134M/ano)",
-        "projectRef": "projeto-03-dw-snapshots-diff"
-      },
-      {
-        "value": "100%",
-        "label": "Paridade célula a célula (2.826 células Inad + 6.330 conta×dias Conciliação)",
-        "projectRef": "projeto-01-lakehouse-recebiveis"
-      },
-      {
-        "value": "26d → 3d",
-        "label": "Redução no ciclo de fechamento semanal de conciliação bancária",
-        "projectRef": "projeto-02-conciliacao-bancaria"
-      },
-      {
-        "value": "-60% RAM",
-        "label": "Otimização de memória em Data Apps Cloud + 6 APIs orquestradas",
-        "projectRef": "projeto-04-marketing-crm-cloud"
-      },
-      {
-        "value": "10 Anos",
-        "label": "Reconciliação histórica multi-CRM/ERP na Máquina do Tempo de Estoque",
-        "projectRef": "projeto-06-maquina-estados-imobiliario"
-      }
-    ]
+    }
   },
   "projects": [
     {
@@ -69,8 +37,20 @@
       "title": "DW Financeiro: Motor de Historização por Snapshots Semanais/Diários e Diff Engine para ERPs Mutáveis",
       "company": "Incorporadora imobiliária (empresa A)",
       "role": "Data Engineer & Analytics Engineer",
-      "categories": ["Data Engineering", "Data Warehousing & Snapshots", "Analytics Engineering"],
-      "stack": ["Microsoft Fabric Warehouse", "T-SQL", "Dataflows Gen2", "Pipelines Fabric", "Direct Lake", "Python", "Pytest"],
+      "categories": [
+        "Data Engineering",
+        "Data Warehousing & Snapshots",
+        "Analytics Engineering"
+      ],
+      "stack": [
+        "Microsoft Fabric Warehouse",
+        "T-SQL",
+        "Dataflows Gen2",
+        "Pipelines Fabric",
+        "Direct Lake",
+        "Python",
+        "Pytest"
+      ],
       "repoPath": "../case-studies/projeto-03-dw-snapshots-diff",
       "demoCommand": "python case-studies/projeto-03-dw-snapshots-diff/run_demo.py",
       "testCommand": "pytest case-studies/projeto-03-dw-snapshots-diff/tests/",
@@ -127,28 +107,35 @@
       "title": "Plataforma Lakehouse Medallion, Controle Transacional e Matriz Roll-Rate de Recebíveis",
       "company": "Incorporadora imobiliária (empresa A)",
       "role": "Lead Data Engineer & Analytics Engineer",
-      "categories": ["Data Engineering", "Analytics Engineering"],
-      "stack": ["Microsoft Fabric Lakehouse", "PySpark", "Delta Lake", "T-SQL Warehouse", "Direct Lake", "PBIR / TMDL", "Python", "Pytest"],
+      "categories": [
+        "Data Engineering",
+        "Analytics Engineering"
+      ],
+      "stack": [
+        "Microsoft Fabric Lakehouse",
+        "PySpark",
+        "Delta Lake",
+        "T-SQL Warehouse",
+        "Direct Lake",
+        "PBIR / TMDL",
+        "Python",
+        "Pytest"
+      ],
       "repoPath": "../case-studies/projeto-01-lakehouse-recebiveis",
       "demoCommand": "python case-studies/projeto-01-lakehouse-recebiveis/run_demo.py",
       "testCommand": "pytest case-studies/projeto-01-lakehouse-recebiveis/tests/",
-      "headlineMetrics": [
-        "100% de paridade célula a célula (2.826 / 2.826 células SQL × PySpark Gold)",
-        "26 tabelas Bronze/Silver, 19 tabelas de Foto Crua Mensal (~29,56M linhas/mês)",
-        "44 de 44 cidades reconciliadas com relatórios legados + 83 decisões documentadas",
-        "333 medidas DAX em Direct Lake (sm_inad) e 348 visuais governados em PBIR"
-      ],
+      "headlineMetrics": [],
       "context": "A análise corporativa de inadimplência, carteira ativa, renegociações e fluxo de recebíveis dependia de extrações legadas opacas em QlikView (.qvd), onde distratos eram confundidos com cessões de direitos, custas jurídicas se misturavam às parcelas contratuais e não havia garantias de consistência quando o processo noturno de cálculo de juros do ERP atrasava.",
-      "challenge": "Projetar uma plataforma Lakehouse Medallion ponta a ponta no Microsoft Fabric que impedisse a publicação de dados quando o job noturno do ERP (ProUAU) estivesse incompleto, preservasse fotografias mensais cruas imutáveis, isolasse cadeias de cessão de crédito e calculasse matrizes de transição Roll-Rate (M -> M+1) com paridade matemática de 100%.",
+      "challenge": "Projetar uma plataforma Lakehouse Medallion ponta a ponta no Microsoft Fabric que impedisse a publicação de dados quando o job noturno do ERP (ProUAU) estivesse incompleto, preservasse fotografias mensais cruas imutáveis, isolasse cadeias de cessão de crédito e calculasse matrizes de transição Roll-Rate (M -> M+1) com paridade matemática entre as duas implementações.",
       "architecture": {
         "summary": "Orquestração mestre (pl_inad_orchestrator) coordenando Warehouse de Controle Transacional (wh_ctl_inad) e Lakehouses Bronze, Silver e Gold.",
         "nodes": [
-          "ERP SQL Server (26 Tabelas Origem)",
+          "ERP SQL Server (Tabelas de Origem)",
           "wh_ctl_inad (sp_abrir_rodada / controle ACID)",
           "lh_bronze_inad (Staging stg_* -> Gate >=99.5% -> bronze_* + Foto Mensal Dia 1)",
           "lh_silver_inad (Contrato Declarativo snake_case + Bloqueio Schema Drift)",
-          "lh_gold_inad (25 Tabelas Star Schema: Roll-Rate, Coorte Reneg, Cessões)",
-          "sm_inad & rpt_inad (Direct Lake 333 Medidas DAX / PBIR)"
+          "lh_gold_inad (Tabelas Star Schema: Roll-Rate, Coorte Reneg, Cessões)",
+          "sm_inad & rpt_inad (Direct Lake com Medidas DAX / PBIR)"
         ]
       },
       "decisions": [
@@ -162,7 +149,7 @@
         },
         {
           "title": "Linhagem de Cessões vs. Distratos Reais",
-          "detail": "Descoberta via engenharia reversa (31 baterias SQL) de que a manutenção TipoMnt = 2 representa transferência/cessão de titularidade e não distrato comercial, evitando inflar artificialmente o indicador de rescisões."
+          "detail": "Descoberta via engenharia reversa (baterias de consultas SQL) de que a manutenção TipoMnt = 2 representa transferência/cessão de titularidade e não distrato comercial, evitando inflar artificialmente o indicador de rescisões."
         },
         {
           "title": "Duplo Eixo de Atraso e Matriz de Transição Roll-Rate (M -> M+1)",
@@ -170,11 +157,11 @@
         }
       ],
       "demoVsReal": {
-        "real": "Em produção no Microsoft Fabric com 26 tabelas Bronze/Silver, 19 tabelas de foto mensal (~29,56M linhas/mês), 25 tabelas Gold em PySpark, Warehouse de controle T-SQL e modelo Direct Lake com 333 medidas DAX.",
-        "demo": "Motor completo em Python + SQLite/DuckDB (src/pipeline_lakehouse.py) reproduzindo o controle transacional, o gate de 99,5%, a foto idempotente de dia 1, o bloqueio de Schema Drift na Silver, a matriz Roll-Rate na Gold e o teste automatizado que prova 100% de paridade célula a célula entre SQL puro e o pipeline."
+        "real": "Em produção no Microsoft Fabric com tabelas Bronze/Silver, tabelas de foto mensal, tabelas Gold em PySpark, Warehouse de controle T-SQL e modelo Direct Lake com medidas DAX governadas.",
+        "demo": "Motor completo em Python + SQLite/DuckDB (src/pipeline_lakehouse.py) reproduzindo o controle transacional, o gate de 99,5%, a foto idempotente de dia 1, o bloqueio de Schema Drift na Silver, a matriz Roll-Rate na Gold e o teste automatizado que prova a paridade célula a célula entre SQL puro e o pipeline."
       },
-      "quality": "6 suítes de validação em produção (contagem Bronze==Silver, soma financeira, zero chaves nulas, reconciliação com 44 cidades de PDFs legados e paridade de 2.826/2.826 células entre protótipo SQL e PySpark Gold).",
-      "results": "Eliminação de divergências entre relatórios financeiros e comerciais, visibilidade inédita da mortalidade de renegociações por safra (coorte) e confiança matemática auditada em 100% das células.",
+      "quality": "Suítes de validação em produção (contagem Bronze==Silver, soma financeira, zero chaves nulas, reconciliação com as cidades dos PDFs legados e paridade célula a célula entre protótipo SQL e PySpark Gold).",
+      "results": "Eliminação de divergências entre relatórios financeiros e comerciais, visibilidade inédita da mortalidade de renegociações por safra (coorte) e confiança matemática auditada célula a célula.",
       "lessons": "Separar a validação de consistência da fonte (Staging Gate) da camada Bronze pública é a forma mais eficaz de proteger modelos Direct Lake contra falhas de jobs noturnos no ERP."
     },
     {
@@ -184,8 +171,20 @@
       "title": "Motor de Conciliação Bancária, Recálculo de 5 Pernas do Razão e Auditoria de Ciclos Multi-Snapshot",
       "company": "Incorporadora imobiliária (empresa A)",
       "role": "Data Engineer & Analytics Engineer",
-      "categories": ["Data Engineering", "Analytics Engineering", "Data Warehousing & Snapshots"],
-      "stack": ["Microsoft Fabric", "PySpark", "T-SQL", "Delta Lake", "Algoritmos Calendário FEBRABAN", "Python", "Pytest"],
+      "categories": [
+        "Data Engineering",
+        "Analytics Engineering",
+        "Data Warehousing & Snapshots"
+      ],
+      "stack": [
+        "Microsoft Fabric",
+        "PySpark",
+        "T-SQL",
+        "Delta Lake",
+        "Algoritmos Calendário FEBRABAN",
+        "Python",
+        "Pytest"
+      ],
       "repoPath": "../case-studies/projeto-02-conciliacao-bancaria",
       "demoCommand": "python case-studies/projeto-02-conciliacao-bancaria/run_demo.py",
       "testCommand": "pytest case-studies/projeto-02-conciliacao-bancaria/tests/",
@@ -240,28 +239,37 @@
       "title": "Plataforma Cloud de Marketing & CRM: Ingestão Multi-API, Lookback/MERGE, Taxonomia Regex e Data App",
       "company": "Incorporadora imobiliária (empresa A)",
       "role": "Data Engineer & Data Apps Architect",
-      "categories": ["Data Engineering", "Cloud & APIs", "Analytics Engineering"],
-      "stack": ["Google BigQuery", "Python", "GitHub Actions", "Google Ads gRPC v20", "Meta Graph API v19", "GA4 API", "Azure OneLake", "Streamlit", "Pytest"],
+      "categories": [
+        "Data Engineering",
+        "Cloud & APIs",
+        "Analytics Engineering"
+      ],
+      "stack": [
+        "Google BigQuery",
+        "Python",
+        "GitHub Actions",
+        "Google Ads gRPC v20",
+        "Meta Graph API v19",
+        "GA4 API",
+        "Azure OneLake",
+        "Streamlit",
+        "Pytest"
+      ],
       "repoPath": "../case-studies/projeto-04-marketing-crm-cloud",
       "demoCommand": "python case-studies/projeto-04-marketing-crm-cloud/run_demo.py",
       "testCommand": "pytest case-studies/projeto-04-marketing-crm-cloud/tests/",
-      "headlineMetrics": [
-        "6 APIs integradas (Google Ads MCC, Meta, GA4, Publya, QRFY, CRM comercial)",
-        "-60% de consumo de RAM (114 MB -> 46 MB) via compactação categórica no Data App",
-        "986 clientes e +47.590 cupons resgatados na convergência de compensação bancária",
-        "Zero perda de dados em falhas parciais de API graças ao controle transacional de watermark"
-      ],
-      "context": "Os investimentos de mídia paga em dezenas de praças imobiliárias estavam fragmentados em 6 plataformas externas, enquanto a atribuição de vendas e elegibilidade promocional sofriam com o atraso de compensação bancária (2 a 3 dias úteis) e com a ausência de códigos padronizados entre campanhas de tráfego e o ERP.",
+      "headlineMetrics": [],
+      "context": "Os investimentos de mídia paga em dezenas de praças imobiliárias estavam fragmentados em várias plataformas externas, enquanto a atribuição de vendas e elegibilidade promocional sofriam com o atraso de compensação bancária (alguns dias úteis) e com a ausência de códigos padronizados entre campanhas de tráfego e o ERP.",
       "challenge": "Construir uma malha de ingestão serverless econômica e resiliente para o BigQuery e Azure OneLake que lidasse com janelas móveis de atribuição, paginação instável de APIs de CRM, propriedades GA4 recém-criadas com zero sessões legítimas e unificasse tudo em aplicações analíticas de resposta sub-segundo.",
       "architecture": {
         "summary": "Pipelines agendados em GitHub Actions alimentando tabelas particionadas/clusterizadas no BigQuery e Parquet no OneLake, consumidos por Data Apps Streamlit com cache sincronizado.",
         "nodes": [
-          "6 APIs Externas (Google Ads MCC, Meta, GA4, Publya, QRFY, CRM)",
+          "APIs Externas (Google Ads MCC, Meta, GA4, Publya, QRFY, CRM)",
           "GitHub Actions (Cron Runners Serverless + Retry Exponencial)",
           "Staging Tables + Transactional Watermark Gate",
-          "Google BigQuery (Particionamento por Data + MERGE Lookback 3d)",
+          "Google BigQuery (Particionamento por Data + MERGE com Janela Móvel de Lookback)",
           "taxonomia.py (@lru_cache Regex Engine: Cidade / UF / Lançamento)",
-          "Streamlit Cloud & Docker Apps (Cache Sincronizado 08h20/15h20 + -60% RAM)"
+          "Streamlit Cloud & Docker Apps (Cache Sincronizado com o ETL + Menor Consumo de RAM)"
         ]
       },
       "decisions": [
@@ -270,24 +278,24 @@
           "detail": "Na extração incremental do CRM por MAX(DataAlteracao), se qualquer página falhar após os retries, o pipeline aborta antes do MERGE da Staging para a tabela final. Isso impede que a watermark avance com dados parciais, evitando buracos silenciosos eternos."
         },
         {
-          "title": "Upsert Idempotente com Lookback de 3 Dias e Prevenção de Dupla Contagem no Meta Ads",
-          "detail": "Como redes de anúncios reatribuem conversões retroativamente, a carga extrai D-3..D e executa MERGE na chave (account_id, adset_id, date_start). Na consolidação de leads, prioriza o agregador nativo action__lead e só recorre à soma de subtipos como fallback, eliminando dupla contagem."
+          "title": "Upsert Idempotente com Janela Móvel de Lookback e Prevenção de Dupla Contagem no Meta Ads",
+          "detail": "Como redes de anúncios reatribuem conversões retroativamente, a carga extrai uma janela móvel recente e executa MERGE na chave (account_id, adset_id, date_start). Na consolidação de leads, prioriza o agregador nativo action__lead e só recorre à soma de subtipos como fallback, eliminando dupla contagem."
         },
         {
-          "title": "Detector Granular de Lacunas de 120 Dias no GA4 com Rastreio de Zero-Row",
-          "detail": "Cruza todas as propriedades descobertas na Admin API contra os últimos 120 dias no BigQuery ao nível (property_id, date) e registra explicitamente pares que retornaram 0 linhas legítimas para não reconsultar a quota da API infinitamente."
+          "title": "Detector Granular de Lacunas no GA4 com Rastreio de Zero-Row",
+          "detail": "Cruza todas as propriedades descobertas na Admin API contra a janela histórica no BigQuery ao nível (property_id, date) e registra explicitamente pares que retornaram zero linhas legítimas para não reconsultar a quota da API infinitamente."
         },
         {
-          "title": "Motor de Taxonomia Regex com @lru_cache e Compactação de -60% de RAM",
-          "detail": "Módulo determinístico com @lru_cache(maxsize=4096) que extrai (cidade, uf, tipo_lancamento) de nomenclaturas livres de campanhas, combinado com conversão automática de strings de baixa cardinalidade para category no Pandas 3.0 (reduzindo a RAM de 114 MB para 46 MB)."
+          "title": "Motor de Taxonomia Regex com @lru_cache e Compactação de RAM",
+          "detail": "Módulo determinístico com @lru_cache que extrai (cidade, uf, tipo_lancamento) de nomenclaturas livres de campanhas, combinado com conversão automática de strings de baixa cardinalidade para category no Pandas 3.0 (reduzindo o uso de RAM)."
         }
       ],
       "demoVsReal": {
-        "real": "Ecossistema em produção na empresa A cobrindo Painel-Geral, meta_ads, ga4_extractor, gads_extractor, publya e painel_campanhas (~98,4k contratos × 59 colunas no OneLake + BigQuery).",
+        "real": "Ecossistema em produção na empresa A cobrindo Painel-Geral, meta_ads, ga4_extractor, gads_extractor, publya e painel_campanhas (base de contratos no OneLake + BigQuery).",
         "demo": "Pipeline completo em Python (src/marketing_pipeline.py e src/taxonomia.py) + aplicação executiva Streamlit (app/streamlit_app.py) testando proteção de watermark, MERGE lookback, prevenção de dupla contagem, taxonomia regex e compactação de memória."
       },
-      "quality": "Validação de integridade transacional pré-MERGE, deduplicação determinística, cache ancorado nas janelas do ETL (08h20 e 15h20 BRT) e suíte Pytest cobrindo cenários de falha de rede.",
-      "results": "Unificação da visão executiva de CAC, ROAS e funil comercial em todas as praças com custo zero de servidores de orquestração e resgate auditado de 986 clientes elegíveis após compensação bancária.",
+      "quality": "Validação de integridade transacional pré-MERGE, deduplicação determinística, cache ancorado nas janelas do ETL e suíte Pytest cobrindo cenários de falha de rede.",
+      "results": "Unificação da visão executiva de CAC, ROAS e funil comercial em todas as praças com custo zero de servidores de orquestração e resgate auditado de clientes elegíveis após compensação bancária.",
       "lessons": "Em pipelines incrementais baseados em carimbo de alteração (updated_at), avançar o estado antes de confirmar a integridade de todos os lotes paginados é a principal causa de perda silenciosa de dados."
     },
     {
@@ -297,42 +305,49 @@
       "title": "Toolkit de Engenharia Reversa: Parser Binário QVD em NumPy Bitwise, Auditoria PBIR/TMDL e Governança Epistêmica",
       "company": "Incorporadora imobiliária (empresa A)",
       "role": "Staff Data Engineer & Governance Architect",
-      "categories": ["Reverse Engineering & Governance", "Data Engineering", "Analytics Engineering"],
-      "stack": ["Python", "NumPy Bitwise", "PBIR / TMDL Static Analysis", "SQL Server Catalog Mining", "Obsidian Knowledge Graph", "Regex Anti-PII", "Pytest"],
+      "categories": [
+        "Reverse Engineering & Governance",
+        "Data Engineering",
+        "Analytics Engineering"
+      ],
+      "stack": [
+        "Python",
+        "NumPy Bitwise",
+        "PBIR / TMDL Static Analysis",
+        "SQL Server Catalog Mining",
+        "Obsidian Knowledge Graph",
+        "Regex Anti-PII",
+        "Pytest"
+      ],
       "repoPath": "../case-studies/projeto-05-engenharia-reversa-bi",
       "demoCommand": "python case-studies/projeto-05-engenharia-reversa-bi/run_demo.py",
       "testCommand": "pytest case-studies/projeto-05-engenharia-reversa-bi/tests/",
-      "headlineMetrics": [
-        "654 milhões de linhas varridas em 508 arquivos .qvd (81,6 GB) sem QlikView Desktop",
-        "44 relatórios .pbix descompilados (6.125 visuais e 4.994 medidas DAX auditadas)",
-        "171 medidas DAX homônimas conflitantes e bugs como DATE(2026, 9, 31) descobertos",
-        "4.255 FKs e 573 decodes minerados no SQL Server + 300 notas auditadas sem PII"
-      ],
-      "context": "A migração de décadas de BI legado (QlikView e dezenas de arquivos Power BI departamentais) para o Microsoft Fabric esbarrava em três bloqueios: falta de licença/ambiente QlikView para abrir 81,6 GB de arquivos binários .qvd, falta de permissão VIEW DEFINITION nas views do ERP SQL Server e contradições crônicas de números entre painéis.",
+      "headlineMetrics": [],
+      "context": "A migração de décadas de BI legado (QlikView e dezenas de arquivos Power BI departamentais) para o Microsoft Fabric esbarrava em três bloqueios: falta de licença/ambiente QlikView para abrir grandes volumes de arquivos binários .qvd, falta de permissão VIEW DEFINITION nas views do ERP SQL Server e contradições crônicas de números entre painéis.",
       "challenge": "Extrair a lógica de negócio, o perfil estatístico e as regras de domínio diretamente dos artefatos binários (.qvd e .pbix) e dos metadados de sistema do banco de dados, documentando o conhecimento em um catálogo governado com garantia matemática contra alucinações e vazamento de PII.",
       "architecture": {
         "summary": "Três motores autorais em Python operando sobre artefatos legados para alimentar um Knowledge Graph auditado determinísticamente.",
         "nodes": [
-          "508 Arquivos Binários .qvd (81,6 GB) + 44 Relatórios .pbix",
+          "Arquivos Binários .qvd + Relatórios .pbix",
           "qvd_bitstuffed_codec.py (XML Header + Symbol Table + NumPy Bitwise Unpack)",
           "pbir_dax_auditor.py (AST/Regex DAX Homônimos, Datas Inválidas e Segurança)",
-          "SQL Server sys.* Miner (4.255 FKs + 573 Decodes sem VIEW DEFINITION)",
-          "Vault Markdown (300 Notas: Tabelas, Padrões, Métricas, Receitas)",
+          "SQL Server sys.* Miner (FKs + Decodes sem VIEW DEFINITION)",
+          "Vault Markdown (Notas: Tabelas, Padrões, Métricas, Receitas)",
           "vault_epistemic_verifier.py (Validador de Lastro Numérico e Bloqueio Anti-PII)"
         ]
       },
       "decisions": [
         {
           "title": "Decodificação Vetorizada de Índices Bit-Stuffed em NumPy",
-          "detail": "Arquivos .qvd armazenam valores únicos em uma Tabela de Símbolos terminada por byte nulo e comprimem as linhas em ponteiros de largura variável de bits. O parser separa o cabeçalho XML no delimitador \\r\\n\\0 e aplica shifts bitwise vetorizados em NumPy ((raw_uint >> bit_offset) & mask + bias), varrendo 654M de linhas com filtro automático de colunas PII."
+          "detail": "Arquivos .qvd armazenam valores únicos em uma Tabela de Símbolos terminada por byte nulo e comprimem as linhas em ponteiros de largura variável de bits. O parser separa o cabeçalho XML no delimitador \\r\\n\\0 e aplica shifts bitwise vetorizados em NumPy ((raw_uint >> bit_offset) & mask + bias), varrendo grandes volumes de linhas com filtro automático de colunas PII."
         },
         {
           "title": "Auditoria Estática em Lote de Modelos PBIR / TMDL",
-          "detail": "Automação da conversão de 44 arquivos .pbix para o formato aberto PBIR/TMDL, varrendo 4.994 medidas DAX para identificar 171 medidas com o mesmo nome mas fórmulas divergentes, literais impossíveis como DATE(2026, 9, 31) e tabelas de senhas expostas."
+          "detail": "Automação da conversão dos arquivos .pbix para o formato aberto PBIR/TMDL, varrendo as medidas DAX para identificar medidas com o mesmo nome mas fórmulas divergentes, literais impossíveis como DATE(2026, 9, 31) e tabelas de senhas expostas."
         },
         {
           "title": "Mineração de Domínios sem VIEW DEFINITION",
-          "detail": "Com a leitura de procedures bloqueada no ERP, o extrator cruzou sys.foreign_keys (4.255 relações), extended_properties e mineração regex em queries legadas para catalogar 573 decodes de códigos numéricos."
+          "detail": "Com a leitura de procedures bloqueada no ERP, o extrator cruzou sys.foreign_keys (relações entre tabelas), extended_properties e mineração regex em queries legadas para catalogar os decodes de códigos numéricos."
         },
         {
           "title": "Governança Epistêmica Determinística (verifica_qlikview.py)",
@@ -340,11 +355,11 @@
         }
       ],
       "demoVsReal": {
-        "real": "Ferramentas em _artefatos/, Fontes/ e Vault/ que processaram 81,6 GB de QVDs, 44 PBIXs e geraram 300 notas técnicas no repositório de governança.",
+        "real": "Ferramentas em _artefatos/, Fontes/ e Vault/ que processaram os QVDs e PBIXs e geraram notas técnicas no repositório de governança.",
         "demo": "Codec binário bit-stuffed completo em NumPy (src/qvd_bitstuffed_codec.py), auditor estático PBIR/DAX (src/pbir_dax_auditor.py) e verificador epistêmico anti-PII (src/vault_epistemic_verifier.py) validados com Pytest."
       },
       "quality": "Roundtrip binário exato testado bit a bit, bloqueio determinístico de padrões sensíveis (CPF, CNPJ, senhas OLEDB) e verificação de lastro numérico.",
-      "results": "Desbloqueio completo da migração do legado para o Microsoft Fabric em semanas em vez de meses, com descoberta prévia de 171 conflitos de conceitos DAX e proteção de governança.",
+      "results": "Desbloqueio completo da migração do legado para o Microsoft Fabric, com descoberta prévia de conflitos de conceitos DAX e proteção de governança.",
       "lessons": "Tratar relatórios de BI e arquivos binários legados como código-fonte auditável (via parsers e análise estática) transforma migrações subjetivas em processos determinísticos de engenharia."
     },
     {
@@ -354,25 +369,32 @@
       "title": "Máquina do Tempo de Estoque Imobiliário (Multi-CRM/ERP), Suavização Estatística INCC e Enriquecimento Geoespacial",
       "company": "Incorporadora imobiliária (empresa B)",
       "role": "Analytics Engineer & BI / Data Specialist",
-      "categories": ["State Machines & Algorithms", "Analytics Engineering", "Data Engineering"],
-      "stack": ["Python", "Pandas", "NumPy", "Geometria Esférica / Haversine", "Estatística / Séries Temporais INCC", "Power BI", "Pytest"],
+      "categories": [
+        "State Machines & Algorithms",
+        "Analytics Engineering",
+        "Data Engineering"
+      ],
+      "stack": [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "Geometria Esférica / Haversine",
+        "Estatística / Séries Temporais INCC",
+        "Power BI",
+        "Pytest"
+      ],
       "repoPath": "../case-studies/projeto-06-maquina-estados-imobiliario",
       "demoCommand": "python case-studies/projeto-06-maquina-estados-imobiliario/run_demo.py",
       "testCommand": "pytest case-studies/projeto-06-maquina-estados-imobiliario/tests/",
-      "headlineMetrics": [
-        "10 anos de estoque mensal reconstruídos (2017–2026) cruzando 1 ERP + 3 CRMs",
-        "Resolução determinística de conflitos cronológicos entre Distrato N e Venda N+1",
-        "Suavização estatística em 3 faixas de desvio com curva INCC defasada em +2 meses",
-        "Dispersão polar vetorizada sem colisão espacial + cálculo de área via Gauss/Shoelace"
-      ],
-      "context": "Ao longo de uma década (2017–2026), a incorporadora operou com múltiplos CRMs (Anapro, Microsoft Dynamics 365 e Construtor de Vendas - CV) além do ERP Sienge. Para análises de velocidade de vendas (VSO), precificação de terrenos e inteligência geográfica de compradores, era necessário reconstruir a fotografia exata do status de cada unidade imobiliária em cada mês do passado e limpar distorções severas em séries de preço/m² de mercado.",
+      "headlineMetrics": [],
+      "context": "Ao longo de vários anos, a incorporadora operou com múltiplos CRMs (Anapro, Microsoft Dynamics 365 e Construtor de Vendas - CV) além do ERP Sienge. Para análises de velocidade de vendas (VSO), precificação de terrenos e inteligência geográfica de compradores, era necessário reconstruir a fotografia exata do status de cada unidade imobiliária em cada mês do passado e limpar distorções severas em séries de preço/m² de mercado.",
       "challenge": "Resolver anomalias temporais onde o distrato administrativo de um contrato N era efetivado no ERP meses após a unidade já ter sido revendida em um contrato N+1 no CRM; suavizar outliers de digitação em séries de preços imobiliários sem perder a tendência inflacionária da construção civil; e plotar milhares de compradores clusterizados por CEP sem sobreposição visual de pinos nem deslocamento de bairro.",
       "architecture": {
         "summary": "Três motores algorítmicos em Python compondo a camada de inteligência comercial e territorial.",
         "nodes": [
           "Fontes Históricas (Sienge ERP + Dynamics 365 + CV CRM + Anapro + BCB OData4 INCC)",
           "state_machine_estoque.py (Reconciliação de Conflitos Cronológicos + Grade Mensal)",
-          "suavizacao_estatistica_incc.py (Clusters de Área qcut + INCC Lag +2m + Regra 3 Faixas)",
+          "suavizacao_estatistica_incc.py (Clusters de Área qcut + INCC defasado + Regra por Faixas)",
           "geoespacial_utils.py (Haversine + Dispersão Polar Vetorizada + Polígonos Shoelace)",
           "Camada Gold Analítica & Dashboards Executivos (Diretoria / Inteligência de Mercado)"
         ]
@@ -383,20 +405,20 @@
           "detail": "Quando Data_Cancelamento(Contrato N) > Data_Venda(Contrato N+1) na mesma unidade, uma linha do tempo ingênua sobrescreveria a nova venda como 'Distratada'. O motor detecta a inversão cronológica e trunca a vigência do contrato N para Data_Venda(N+1) - 1 dia, preservando a integridade do estoque mensal."
         },
         {
-          "title": "Suavização Estatística de Preço/m² em 3 Faixas com INCC Defasado (+2 Meses)",
-          "detail": "Aplica a convenção setorial de defasagem de +2 meses no índice INCC, segmenta empreendimentos em 4 clusters de metragem (qcut) e avalia o desvio perante a mediana móvel de 365 dias: desvios <=10% mantêm o valor real; entre 10% e 20% assumem a mediana móvel de 365d; acima de 20% (erros grosseiros de coleta) são reconstruídos pela curva teórica do cluster corrigida pelo INCC."
+          "title": "Suavização Estatística de Preço/m² por Faixas com INCC Defasado",
+          "detail": "Aplica a convenção setorial de defasagem no índice INCC, segmenta empreendimentos em clusters de metragem (qcut) e avalia o desvio perante a mediana móvel anual: desvios pequenos mantêm o valor real; desvios intermediários assumem a mediana móvel anual; desvios grandes (erros grosseiros de coleta) são reconstruídos pela curva teórica do cluster corrigida pelo INCC."
         },
         {
           "title": "Dispersão Polar Vetorizada em Anéis Concêntricos e Fórmula de Shoelace",
-          "detail": "Para evitar que dezenas de clientes do mesmo CEP fiquem empilhados no mesmo ponto do mapa, o algoritmo distribui coordenadas idênticas usando trigonometria polar em anéis concêntricos (raio de ~18 metros por anel, 12 pontos por anel), além de calcular distâncias reais ao estande via Haversine e áreas de terrenos via Fórmula de Gauss (Shoelace)."
+          "detail": "Para evitar que dezenas de clientes do mesmo CEP fiquem empilhados no mesmo ponto do mapa, o algoritmo distribui coordenadas idênticas usando trigonometria polar em anéis concêntricos (anéis de raio crescente), além de calcular distâncias reais ao estande via Haversine e áreas de terrenos via Fórmula de Gauss (Shoelace)."
         }
       ],
       "demoVsReal": {
-        "real": "Scripts em produção na empresa B (Novo Fechamento.py, tratamento_sintese [preco].py, Pesquisas P1..P4_V5 e kmztocsv.py) gerando bases históricas de ~200 MB e alimentando o ecossistema de Inteligência de Mercado e Comercial.",
+        "real": "Scripts em produção na empresa B (Novo Fechamento.py, tratamento_sintese [preco].py, Pesquisas P1..P4_V5 e kmztocsv.py) gerando bases históricas e alimentando o ecossistema de Inteligência de Mercado e Comercial.",
         "demo": "Três módulos Python independentes e vetorizados (state_machine_estoque.py, suavizacao_estatistica_incc.py e geoespacial_utils.py) com dados sintéticos e bateria completa de testes Pytest."
       },
-      "quality": "Invariantes de unicidade de estado por (id_unidade, ano_mes), conservação do total físico de unidades do empreendimento em todos os meses da série e validação trigonométrica de raio máximo de dispersão (< 100m).",
-      "results": "Série histórica de 10 anos livre de distorções de duplo status por unidade, curvas de avaliação de preço/m² imunes a erros de digitação e mapas de calor comerciais de alta precisão.",
+      "quality": "Invariantes de unicidade de estado por (id_unidade, ano_mes), conservação do total físico de unidades do empreendimento em todos os meses da série e validação trigonométrica de raio máximo de dispersão.",
+      "results": "Série histórica livre de distorções de duplo status por unidade, curvas de avaliação de preço/m² imunes a erros de digitação e mapas de calor comerciais de alta precisão.",
       "lessons": "Integrar múltiplos CRMs e ERPs ao longo do tempo exige modelar os dados como um log de eventos sujeito a atrasos de escrituração contábil, aplicando regras formais de precedência de negócios antes de expandir snapshots mensais."
     }
   ],
@@ -404,56 +426,155 @@
     {
       "category": "Cloud Lakehouse & Data Warehousing",
       "items": [
-        { "name": "Microsoft Fabric (Lakehouse & Warehouse)", "level": "Produção / Arquitetura", "cases": ["CASE 01", "CASE 02", "CASE 03"] },
-        { "name": "PySpark & Delta Lake (replaceWhere, ACID)", "level": "Produção / Arquitetura", "cases": ["CASE 01", "CASE 02"] },
-        { "name": "T-SQL (Stored Procedures, Snapshot & Diff Engines)", "level": "Produção / Arquitetura", "cases": ["CASE 01", "CASE 02", "CASE 03", "CASE 05"] },
-        { "name": "Google BigQuery (Particionamento, Clustering, MERGE)", "level": "Produção / Arquitetura", "cases": ["CASE 04"] },
-        { "name": "Azure OneLake & Parquet Storage", "level": "Produção", "cases": ["CASE 01", "CASE 04"] },
-        { "name": "DuckDB & SQLite (In-Process OLAP / Testes)", "level": "Demonstração & Tooling", "cases": ["CASE 01", "CASE 03", "CASE 04"] }
+        {
+          "name": "Microsoft Fabric (Lakehouse & Warehouse)",
+          "level": "Produção / Arquitetura",
+          "cases": [
+            "CASE 01",
+            "CASE 02",
+            "CASE 03"
+          ]
+        },
+        {
+          "name": "PySpark & Delta Lake (replaceWhere, ACID)",
+          "level": "Produção / Arquitetura",
+          "cases": [
+            "CASE 01",
+            "CASE 02"
+          ]
+        },
+        {
+          "name": "T-SQL (Stored Procedures, Snapshot & Diff Engines)",
+          "level": "Produção / Arquitetura",
+          "cases": [
+            "CASE 01",
+            "CASE 02",
+            "CASE 03",
+            "CASE 05"
+          ]
+        },
+        {
+          "name": "Google BigQuery (Particionamento, Clustering, MERGE)",
+          "level": "Produção / Arquitetura",
+          "cases": [
+            "CASE 04"
+          ]
+        },
+        {
+          "name": "Azure OneLake & Parquet Storage",
+          "level": "Produção",
+          "cases": [
+            "CASE 01",
+            "CASE 04"
+          ]
+        },
+        {
+          "name": "DuckDB & SQLite (In-Process OLAP / Testes)",
+          "level": "Demonstração & Tooling",
+          "cases": [
+            "CASE 01",
+            "CASE 03",
+            "CASE 04"
+          ]
+        }
       ]
     },
     {
       "category": "Engenharia de Software, Ingestão & Orquestração",
       "items": [
-        { "name": "Python 3.11+ (Pandas 3.0, NumPy Vetorizado, Bitwise)", "level": "Produção / Especialista", "cases": ["CASE 01", "CASE 02", "CASE 03", "CASE 04", "CASE 05", "CASE 06"] },
-        { "name": "GitHub Actions (Serverless Cron Pipelines & CI/CD)", "level": "Produção", "cases": ["CASE 04"] },
-        { "name": "Fabric Pipelines & Dataflows Gen2 (Staging-First)", "level": "Produção", "cases": ["CASE 01", "CASE 02", "CASE 03"] },
-        { "name": "Integração de APIs REST / gRPC / OData4 / Graph API", "level": "Produção", "cases": ["CASE 04", "CASE 06"] },
-        { "name": "Pytest & Reconciliação Automatizada Célula a Célula", "level": "Produção / Qualidade", "cases": ["CASE 01", "CASE 02", "CASE 03", "CASE 04", "CASE 05", "CASE 06"] }
+        {
+          "name": "Python 3.11+ (Pandas 3.0, NumPy Vetorizado, Bitwise)",
+          "level": "Produção / Especialista",
+          "cases": [
+            "CASE 01",
+            "CASE 02",
+            "CASE 03",
+            "CASE 04",
+            "CASE 05",
+            "CASE 06"
+          ]
+        },
+        {
+          "name": "GitHub Actions (Serverless Cron Pipelines & CI/CD)",
+          "level": "Produção",
+          "cases": [
+            "CASE 04"
+          ]
+        },
+        {
+          "name": "Fabric Pipelines & Dataflows Gen2 (Staging-First)",
+          "level": "Produção",
+          "cases": [
+            "CASE 01",
+            "CASE 02",
+            "CASE 03"
+          ]
+        },
+        {
+          "name": "Integração de APIs REST / gRPC / OData4 / Graph API",
+          "level": "Produção",
+          "cases": [
+            "CASE 04",
+            "CASE 06"
+          ]
+        },
+        {
+          "name": "Pytest & Reconciliação Automatizada Célula a Célula",
+          "level": "Produção / Qualidade",
+          "cases": [
+            "CASE 01",
+            "CASE 02",
+            "CASE 03",
+            "CASE 04",
+            "CASE 05",
+            "CASE 06"
+          ]
+        }
       ]
     },
     {
       "category": "Analytics Engineering, BI & Data Applications",
       "items": [
-        { "name": "Modelagem Star Schema, Snapshots & Máquinas de Estado", "level": "Produção / Especialista", "cases": ["CASE 01", "CASE 02", "CASE 03", "CASE 06"] },
-        { "name": "Power BI Direct Lake, DAX Avançado & Formato PBIR/TMDL", "level": "Produção / Auditoria", "cases": ["CASE 01", "CASE 03", "CASE 05"] },
-        { "name": "Streamlit Data Apps (Custom SVG/HTML, Cache & RAM Opt)", "level": "Produção", "cases": ["CASE 04"] },
-        { "name": "Engenharia Reversa de Legado (.qvd Binário & Catálogos SQL)", "level": "Ferramental Autoral", "cases": ["CASE 05"] },
-        { "name": "Geoprocessamento & Estatística (Haversine, Shoelace, INCC)", "level": "Produção", "cases": ["CASE 06"] }
-      ]
-    }
-  ],
-  "trajectory": [
-    {
-      "period": "Experiência Atual",
-      "company": "Incorporadora imobiliária (empresa A)",
-      "role": "Data Engineer & Analytics Engineer",
-      "highlights": [
-        "Arquitetura e implementação da plataforma Medallion no Microsoft Fabric para Recebíveis/Inadimplência (26 tabelas Bronze/Silver, 25 tabelas Gold, 19 fotos mensais com ~29,56M linhas/mês e 100% de paridade célula a célula em 2.826 células).",
-        "Desenvolvimento do DW Financeiro corporativo (wh_dw_financeiro) com motor de snapshots semanais idempotentes (~2,58M linhas/foto) e engine de diff de parcelas e rateios (snap/cur.mudanca_parcela).",
-        "Construção do motor de Conciliação Bancária no Fabric (recálculo das 5 pernas do razão em 6.330 conta×dias, expurgo de 6.596 pares transitórios Tipo 5/6 e redução do fechamento semanal de 26 dias para 3 dias).",
-        "Desenvolvimento da plataforma Cloud de Marketing & CRM integrando 6 APIs ao BigQuery e OneLake via GitHub Actions, Data Apps em Streamlit com redução de 60% de RAM e auditoria técnica/handover de segurança de 102 pontos no ecossistema do portal corporativo.",
-        "Criação de toolkit autoral de engenharia reversa: parser binário de arquivos .qvd em NumPy bitwise (654M de linhas varridas), auditoria estática de 44 relatórios PBIR/TMDL (4.994 medidas DAX) e catálogo Obsidian Vault com 300 notas verificadas."
-      ]
-    },
-    {
-      "period": "Experiência Anterior",
-      "company": "Incorporadora imobiliária (empresa B)",
-      "role": "BI & Analytics Engineer / Inteligência Comercial & Mercado",
-      "highlights": [
-        "Engenharia da Máquina do Tempo do Fechamento Comercial, reconstruindo 10 anos de fotografias mensais de estoque (2017–2026) através da reconciliação de Sienge ERP, Dynamics 365, Construtor de Vendas (CV) e Anapro.",
-        "Arquitetura local Bronze/Silver/Gold para a Esteira Comercial (Comissões, Parecer de Crédito, Repasse Associativo e Distratos) com parser resiliente para 250 MB de planilhas históricas de bônus.",
-        "Desenvolvimento de algoritmos estatísticos de suavização de preço/m² acoplados à API OData4 do Banco Central (INCC defasado em +2 meses) e enriquecimento geoespacial (Haversine, dispersão polar sem colisão e polígonos KML/Shoelace)."
+        {
+          "name": "Modelagem Star Schema, Snapshots & Máquinas de Estado",
+          "level": "Produção / Especialista",
+          "cases": [
+            "CASE 01",
+            "CASE 02",
+            "CASE 03",
+            "CASE 06"
+          ]
+        },
+        {
+          "name": "Power BI Direct Lake, DAX Avançado & Formato PBIR/TMDL",
+          "level": "Produção / Auditoria",
+          "cases": [
+            "CASE 01",
+            "CASE 03",
+            "CASE 05"
+          ]
+        },
+        {
+          "name": "Streamlit Data Apps (Custom SVG/HTML, Cache & RAM Opt)",
+          "level": "Produção",
+          "cases": [
+            "CASE 04"
+          ]
+        },
+        {
+          "name": "Engenharia Reversa de Legado (.qvd Binário & Catálogos SQL)",
+          "level": "Ferramental Autoral",
+          "cases": [
+            "CASE 05"
+          ]
+        },
+        {
+          "name": "Geoprocessamento & Estatística (Haversine, Shoelace, INCC)",
+          "level": "Produção",
+          "cases": [
+            "CASE 06"
+          ]
+        }
       ]
     }
   ]

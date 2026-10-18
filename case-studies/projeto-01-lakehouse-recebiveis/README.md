@@ -105,7 +105,7 @@ Para tornar este estudo de caso **100% executável localmente em segundos** sem 
 
 ## 6. Qualidade, Confiabilidade e Governança
 
-A suíte automatizada em [`tests/test_lakehouse.py`](file:///g:/Meu%20Drive/Portif%C3%B3lio/portfolio-workspace/case-studies/projeto-01-lakehouse-recebiveis/tests/test_lakehouse.py) valida quatro pilares inegociáveis de confiabilidade:
+A suíte automatizada em [`tests/test_lakehouse.py`](tests/test_lakehouse.py) valida quatro pilares inegociáveis de confiabilidade:
 
 1. **Bloqueio de Schema Drift e Cobertura Insuficiente (`< 99,5%`)**:
    - Simula renomeação inesperada de coluna na origem e queda de cobertura em `ContasReceberCalc` para 90%. Comprova que `LakehouseQualityGateError` é lançada, a rodada é fechada como `ABORTADA_QUARENTENA` e a camada Bronze anterior permanece intacta.

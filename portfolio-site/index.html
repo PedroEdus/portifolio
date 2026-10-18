@@ -80,16 +80,12 @@
             <div class="number-label">para fechar a conciliação bancária da semana</div>
           </div>
           <div class="number-card">
-            <div class="number-value">10 anos</div>
-            <div class="number-label">de histórico de estoque de imóveis reconstruído</div>
+            <div class="number-value">~2,6 milhões</div>
+            <div class="number-label">de linhas do contas a pagar fotografadas toda semana, para saber o que mudou</div>
           </div>
           <div class="number-card">
-            <div class="number-value">6 plataformas</div>
-            <div class="number-label">de marketing e vendas reunidas em um só painel</div>
-          </div>
-          <div class="number-card">
-            <div class="number-value">100%</div>
-            <div class="number-label">dos números do painel de cobrança conferidos (2.826 de 2.826)</div>
+            <div class="number-value">~12 minutos</div>
+            <div class="number-label">para carregar e comparar o contas a pagar completo</div>
           </div>
         </div>
       </div>
@@ -182,7 +178,7 @@
             <ul class="timeline-list">
               <li>Construí o banco de dados analítico do contas a pagar e a plataforma de cobrança e inadimplência no Microsoft Fabric.</li>
               <li>Automatizei a conciliação bancária e reduzi o fechamento semanal de 26 para 3 dias.</li>
-              <li>Reuni seis plataformas de marketing e vendas em um único painel, atualizado automaticamente.</li>
+              <li>Reuni as plataformas de marketing e vendas em um único painel, atualizado automaticamente.</li>
               <li>Criei ferramentas para recuperar e documentar relatórios e sistemas antigos durante a migração.</li>
             </ul>
           </div>
@@ -196,7 +192,7 @@
               <span class="timeline-period">Experiência anterior</span>
             </div>
             <ul class="timeline-list">
-              <li>Reconstruí 10 anos do histórico de estoque de imóveis, reunindo o sistema de gestão e três CRMs.</li>
+              <li>Reconstruí o histórico de estoque de imóveis, reunindo o sistema de gestão e os CRMs.</li>
               <li>Organizei as bases de comissões, parecer de crédito, repasses e distratos em camadas (bruta, tratada e pronta para uso).</li>
               <li>Criei a correção estatística de preços por metro quadrado com o INCC e rotinas de mapas e cálculo de área de terrenos.</li>
             </ul>
@@ -283,7 +279,7 @@
               <span>PySpark & Delta Lake</span>
               <span class="stack-level">Cases 01, 02</span>
             </div>
-            <p style="font-size: 0.8rem; color: var(--text-secondary);">Escrita idempotente com <code>replaceWhere</code> para fotos mensais (~29,56M linhas/mês), contratos declarativos e deduplicação distribuída.</p>
+            <p style="font-size: 0.8rem; color: var(--text-secondary);">Escrita idempotente com <code>replaceWhere</code> para fotos mensais, contratos declarativos e deduplicação distribuída.</p>
           </div>
           <div class="stack-item">
             <div class="stack-item-top">
@@ -297,7 +293,7 @@
               <span>Google BigQuery & Azure OneLake</span>
               <span class="stack-level">Cases 01, 04</span>
             </div>
-            <p style="font-size: 0.8rem; color: var(--text-secondary);">Tabelas particionadas e clusterizadas, <code>MERGE</code> com janela móvel de lookback de 3 dias e leitura colunar Parquet com PyArrow.</p>
+            <p style="font-size: 0.8rem; color: var(--text-secondary);">Tabelas particionadas e clusterizadas, <code>MERGE</code> com janela móvel de lookback e leitura colunar Parquet com PyArrow.</p>
           </div>
         </div>
 
@@ -308,7 +304,7 @@
               <span>Python 3.11+ (Pandas 3.0, NumPy Bitwise)</span>
               <span class="stack-level">Cases 01 a 06</span>
             </div>
-            <p style="font-size: 0.8rem; color: var(--text-secondary);">Processamento vetorizado, descompactação binária bit-stuffed em NumPy, cache <code>@lru_cache</code> e otimização de tipos categóricos (-60% RAM).</p>
+            <p style="font-size: 0.8rem; color: var(--text-secondary);">Processamento vetorizado, descompactação binária bit-stuffed em NumPy, cache <code>@lru_cache</code> e otimização de tipos categóricos para reduzir o uso de memória.</p>
           </div>
           <div class="stack-item">
             <div class="stack-item-top">
@@ -329,7 +325,7 @@
               <span>Engenharia de Qualidade & Testes (Pytest)</span>
               <span class="stack-level">Cases 01 a 06</span>
             </div>
-            <p style="font-size: 0.8rem; color: var(--text-secondary);">Testes automatizados de paridade célula a célula (2.826 células Inad + 6.330 conta×dias Conciliação), invariantes de estado e bloqueio anti-PII.</p>
+            <p style="font-size: 0.8rem; color: var(--text-secondary);">Testes automatizados de paridade célula a célula (6.330 conta×dias na Conciliação), invariantes de estado e bloqueio anti-PII.</p>
           </div>
         </div>
 
@@ -347,7 +343,7 @@
               <span>Power BI Direct Lake, DAX & Formato PBIR/TMDL</span>
               <span class="stack-level">Cases 01, 03, 05</span>
             </div>
-            <p style="font-size: 0.8rem; color: var(--text-secondary);">Construção de modelos semânticos Direct Lake (333 medidas DAX em Inad, 46 no DW Financeiro) e auditoria estática automatizada sobre 4.994 medidas DAX.</p>
+            <p style="font-size: 0.8rem; color: var(--text-secondary);">Construção de modelos semânticos Direct Lake (46 medidas DAX no DW Financeiro) e auditoria estática automatizada de medidas DAX.</p>
           </div>
           <div class="stack-item">
             <div class="stack-item-top">
@@ -361,7 +357,7 @@
               <span>Estatística Aplicada & Geoprocessamento</span>
               <span class="stack-level">Case 06</span>
             </div>
-            <p style="font-size: 0.8rem; color: var(--text-secondary);">Suavização de outliers em 3 faixas por mediana móvel de 365 dias e curva INCC, distância de Haversine, dispersão polar sem colisão e área via Gauss/Shoelace.</p>
+            <p style="font-size: 0.8rem; color: var(--text-secondary);">Suavização de outliers por faixas com mediana móvel anual e curva INCC, distância de Haversine, dispersão polar sem colisão e área via Gauss/Shoelace.</p>
           </div>
         </div>
       </div>

@@ -79,7 +79,7 @@ flowchart TD
 
 | Componente | Produção Real (`ws_financeiro` - Microsoft Fabric) | Implementação Demonstrativa neste Repositório |
 | :--- | :--- | :--- |
-| **Processamento das 5 Pernas** | PySpark Notebooks + Lakehouse Delta Tables no Microsoft Fabric | [`src/engine_conciliacao.py`](file:///g:/Meu%20Drive/Portif%C3%B3lio/portfolio-workspace/case-studies/projeto-02-conciliacao-bancaria/src/engine_conciliacao.py) (Pandas / NumPy / Python 3) |
+| **Processamento das 5 Pernas** | PySpark Notebooks + Lakehouse Delta Tables no Microsoft Fabric | [`src/engine_conciliacao.py`](src/engine_conciliacao.py) (Pandas / NumPy / Python 3) |
 | **Volume Auditado** | **6.330 conta×dias** auditados e **6.596 pares `R3`** expurgados | 34 conta×dias sintéticos (`seed=42`) e 40 pares `R3` casados + 1 órfão unilateral |
 | **Auditoria de Snapshots** | Histórico diário de snapshots `Num_exa` no Lakehouse | `audit_reconciliation_cycles()` sobre snapshots `Num_exa 1..N` |
 | **Monitoramento de Cobertura** | Data Activator / Relatório Direct Lake de Governança | `calculate_icp_and_coverage_sentinel()` com mediana móvel de 10 dias úteis |
@@ -88,7 +88,7 @@ flowchart TD
 
 ## 6. Qualidade, Confiabilidade e Governança
 
-A suíte automatizada em [`tests/test_conciliacao.py`](file:///g:/Meu%20Drive/Portif%C3%B3lio/portfolio-workspace/case-studies/projeto-02-conciliacao-bancaria/tests/test_conciliacao.py) garante a exatidão matemática de cada regra:
+A suíte automatizada em [`tests/test_conciliacao.py`](tests/test_conciliacao.py) garante a exatidão matemática de cada regra:
 
 1. **Equação Fundamental de Saldo e Paridade das 5 Pernas (`test_accounting_equation_and_five_legs_parity`)**:
    - Prova que, sem o expurgo `R3`, 0% dos `conta×dias` batem créditos e débitos com o extrato oficial; após aplicar `R3`, **100% dos `conta×dias` atingem paridade exata** ($\text{SF} = \text{SI} + \text{C} - \text{D}$).

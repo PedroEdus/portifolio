@@ -7,7 +7,7 @@
 
 ## 1. Contexto e Problema de Negócio
 
-Em incorporadoras de grande porte com ciclos construtivos longos (2017–2026), a análise fidedigna da **Velocidade Sobre Oferta (VSO)**, da evolução de preços por $\text{m}^2$ e do posicionamento competitivo dos terrenos depende da integração de sistemas que não foram projetados para conversar entre si:
+Em incorporadoras de grande porte com ciclos construtivos longos, a análise fidedigna da **Velocidade Sobre Oferta (VSO)**, da evolução de preços por $\text{m}^2$ e do posicionamento competitivo dos terrenos depende da integração de sistemas que não foram projetados para conversar entre si:
 
 1. **Fragmentação Histórica Multi-CRM/ERP e Anomalias Cronológicas:** Ao longo de quase uma década, o ciclo de vida das unidades autônomas transitou entre **Sienge** (ERP contábil/engenharia), **Microsoft Dynamics**, **Anapro** e **Construtor de Vendas (CV)**. Como os sistemas não gravam snapshots mensais nativos do estoque e o registro contábil de um **Distrato** do contrato $N$ frequentemente é efetivado semanas **após** a unidade já ter sido revendida para um novo comprador no contrato $N+1$ no CRM comercial, uma ordenação ingênua por data de evento marcava unidades vendidas como "Distratadas" no fechamento mensal.
 2. **Ruído e Outliers em Pesquisas de Mercado ($\text{R\$}/\text{m}^2$):** Pesquisas mensais de concorrência sofrem com erros de digitação, distorções pontuais de tabela promocional e variações bruscas de mix, exigindo um motor de higienização estatística ancorado na dinâmica inflacionária real da construção civil (**INCC** com defasagem contratual de $+2\text{ meses}$).
@@ -22,14 +22,14 @@ A arquitetura integra três motores especializados que alimentam o Data Mart Com
 ```mermaid
 flowchart TD
     subgraph Fontes["1. Ecossistema Multi-CRM / ERP e Mercado"]
-        ERP["Logs de Eventos (2017–2026)<br/>Sienge + Dynamics + CV + Anapro"]
+        ERP["Logs de Eventos<br/>Sienge + Dynamics + CV + Anapro"]
         PESQ["Pesquisas de Mercado (R$/m²)<br/>+ Série Histórica INCC"]
         KMZ["Malhas Cartográficas (.KMZ)<br/>+ Coordenadas por CEP"]
     end
 
     subgraph Motores["2. Motores de Engenharia Analítica (Python / NumPy / Pandas)"]
         SM["Máquina de Estados de Estoque<br/>corrigir_conflito_cronologico()<br/>Grade Unidade x Competência"]
-        INCC["Suavizador Estatístico em 3 Faixas<br/>INCC (+2m lag) + Cluster qcut<br/>+ Mediana Móvel 365d"]
+        INCC["Suavizador Estatístico por Faixas<br/>INCC defasado + Cluster qcut<br/>+ Mediana Móvel Anual"]
         GEO["Motor Geoespacial Vetorizado<br/>Haversine + Dispersão Polar (cos/sin)<br/>+ Área de Gauss/Shoelace"]
     end
 
@@ -49,7 +49,7 @@ flowchart TD
 ## 3. Decisões Técnicas e Engenharia Interna
 
 ### 3.1. Máquina do Tempo de Estoque e Resolução de Conflitos Cronológicos ($N$ vs. $N+1$)
-No módulo [`src/state_machine_estoque.py`](file:///g:/Meu%20Drive/Portif%C3%B3lio/portfolio-workspace/case-studies/projeto-06-maquina-estados-imobiliario/src/state_machine_estoque.py), a função `corrigir_conflito_cronologico()` resolve o problema clássico de dessincronia entre a esteira comercial (CRM) e a baixa contábil (ERP):
+No módulo [`src/state_machine_estoque.py`](src/state_machine_estoque.py), a função `corrigir_conflito_cronologico()` resolve o problema clássico de dessincronia entre a esteira comercial (CRM) e a baixa contábil (ERP):
 
 ```mermaid
 stateDiagram-v2
@@ -66,17 +66,17 @@ stateDiagram-v2
 
 Quando o contrato $N$ sofre `DISTRATO` na data $t_{\text{distrato}}(N)$, mas já existe um contrato sucessor $M > N$ na mesma unidade cuja ativação (`VENDA` ou `PROPOSTA_ASSINATURA`) ocorreu em $t_{\text{início}}(M) \le t_{\text{distrato}}(N)$, o motor retroage a data efetiva de encerramento do contrato $N$ para $t_{\text{início}}(M) - 1\text{ dia}$ e sinaliza `conflito_cronologico_corrigido = True`. Dessa forma, a expansão da grade cartesiana $\text{Unidade} \times \text{Mês}$ preserva a integridade da venda ativa $M$.
 
-### 3.2. Suavização Estatística de Preços/$\text{m}^2$ em 3 Faixas com Defasagem de $+2$ Meses no INCC
-No módulo [`src/suavizacao_estatistica_incc.py`](file:///g:/Meu%20Drive/Portif%C3%B3lio/portfolio-workspace/case-studies/projeto-06-maquina-estados-imobiliario/src/suavizacao_estatistica_incc.py):
-1. **Defasagem Contratual ($+2\text{ meses}$):** A série mensal do INCC é deslocada em $+2\text{ meses}$ (`DateOffset(months=2)`), reproduzindo a convenção de reajuste de tabelas imobiliárias.
+### 3.2. Suavização Estatística de Preços/$\text{m}^2$ por Faixas com Defasagem no INCC
+No módulo [`src/suavizacao_estatistica_incc.py`](src/suavizacao_estatistica_incc.py):
+1. **Defasagem Contratual:** A série mensal do INCC é deslocada por uma defasagem configurável (`DateOffset`), reproduzindo a convenção de reajuste de tabelas imobiliárias.
 2. **Clusterização por Quantis de Área (`qcut`):** Os empreendimentos são segmentados em clusters homogêneos de metragem (`CLUSTER_Q1`, `CLUSTER_Q2`, `CLUSTER_Q3`).
-3. **Regra de Decisão em 3 Faixas de Desvio Relativo ($\delta = \frac{|P_{\text{obs}} - M_{365}|}{M_{365}}$):**
-   - **Faixa 1 ($\delta \le 10\%$):** Oscilação normal de mercado $\to$ **mantém o preço original observado** ($P_{\text{obs}}$).
-   - **Faixa 2 ($10\% < \delta \le 20\%$):** Desvio moderado de coleta $\to$ **substitui pela mediana móvel de 365 dias** ($M_{365}$).
-   - **Faixa 3 ($\delta > 20\%$):** Outlier severo / erro de preenchimento $\to$ **substitui pela curva teórica do cluster corrigida pelo INCC defasado** ($P_{\text{cluster, INCC}}$).
+3. **Regra de Decisão por Faixas de Desvio Relativo ($\delta = \frac{|P_{\text{obs}} - M|}{M}$, com $M$ a mediana móvel anual):**
+   - **Faixa 1 ($\delta \le \theta_1$):** Oscilação normal de mercado $\to$ **mantém o preço original observado** ($P_{\text{obs}}$).
+   - **Faixa 2 ($\theta_1 < \delta \le \theta_2$):** Desvio moderado de coleta $\to$ **substitui pela mediana móvel anual** ($M$).
+   - **Faixa 3 ($\delta > \theta_2$):** Outlier severo / erro de preenchimento $\to$ **substitui pela curva teórica do cluster corrigida pelo INCC defasado** ($P_{\text{cluster, INCC}}$).
 
 ### 3.3. Enriquecimento Geoespacial: Haversine, Dispersão Polar e Fórmula de Gauss/Shoelace
-No módulo [`src/geoespacial_utils.py`](file:///g:/Meu%20Drive/Portif%C3%B3lio/portfolio-workspace/case-studies/projeto-06-maquina-estados-imobiliario/src/geoespacial_utils.py):
+No módulo [`src/geoespacial_utils.py`](src/geoespacial_utils.py):
 - **Distância Esférica de Haversine ($R = 6371.0\text{ km}$):**
   $$d = 2 R \arctan2\left(\sqrt{\sin^2\left(\frac{\Delta\phi}{2}\right) + \cos\phi_1\cos\phi_2\sin^2\left(\frac{\Delta\lambda}{2}\right)}, \sqrt{1 - a}\right)$$
 - **Dispersão Polar Vetorizada em Anéis Concêntricos (`ajustar_coordenadas_duplicadas_fast`):** Separa pontos que colidem no mesmo CEP distribuindo as duplicatas ($k \ge 1$) em anéis de raio $r_k = r_{\text{base}} \lceil k / M \rceil$ metros e ângulo $\theta_k = \frac{2\pi ((k-1) \bmod M)}{M}$:
@@ -98,7 +98,7 @@ projeto-06-maquina-estados-imobiliario/
 ├── src/
 │   ├── __init__.py
 │   ├── state_machine_estoque.py       # Máquina do tempo de estoque + correção cronológica N vs N+1
-│   ├── suavizacao_estatistica_incc.py # Suavização em 3 faixas + INCC (+2m lag) + mediana 365d
+│   ├── suavizacao_estatistica_incc.py # Suavização por faixas + INCC defasado + mediana anual
 │   └── geoespacial_utils.py           # Haversine, dispersão polar vetorizada e área Shoelace
 └── tests/
     └── test_maquina_estados.py        # Suíte pytest cobrindo estoque, INCC e geoespacial
@@ -110,8 +110,8 @@ projeto-06-maquina-estados-imobiliario/
 
 | Indicador / Subsistema | Antes da Engenharia | Após a Implementação |
 | :--- | :--- | :--- |
-| **Reconciliação Histórica de Estoque (2017–2026)** | Divergência entre relatórios comerciais (CV/Anapro) e contábeis (Sienge) devido a distratos tardios. | **100% de consistência temporal** na Fotografia Mensal de Estoque via `corrigir_conflito_cronologico()`. |
-| **Séries Históricas de Preço/$\text{m}^2$** | Distorções em análises de VSO e *pricing* causadas por outliers de digitação acima de $20\%$. | **Higienização automatizada em 3 faixas** ancorada na mediana móvel de 365d e na curva INCC defasada em $+2\text{ meses}$. |
+| **Reconciliação Histórica de Estoque** | Divergência entre relatórios comerciais (CV/Anapro) e contábeis (Sienge) devido a distratos tardios. | **100% de consistência temporal** na Fotografia Mensal de Estoque via `corrigir_conflito_cronologico()`. |
+| **Séries Históricas de Preço/$\text{m}^2$** | Distorções em análises de VSO e *pricing* causadas por outliers de digitação. | **Higienização automatizada por faixas** ancorada na mediana móvel anual e na curva INCC defasada. |
 | **Geoprocessamento de Mercado e Terrenos** | Sobreposição visual de dezenas de imóveis no mesmo CEP e dependência manual do Google Earth Pro para áreas. | **Zero colisões visuais** com preservação de quadra/bairro (dispersão polar de $12\text{m}$–$15\text{m}$) e extração instantânea de áreas em $\text{m}^2$. |
 
 ---
@@ -127,7 +127,7 @@ pip install -r requirements.txt
 ```bash
 python run_demo.py
 ```
-O script gera o arquivo [`examples/sample_output.json`](file:///g:/Meu%20Drive/Portif%C3%B3lio/portfolio-workspace/case-studies/projeto-06-maquina-estados-imobiliario/examples/sample_output.json) contendo a Fotografia Mensal de Estoque corrigida, a tabela de preços suavizados nas 3 faixas do INCC e os cálculos geoespaciais.
+O script gera o arquivo [`examples/sample_output.json`](examples/sample_output.json) contendo a Fotografia Mensal de Estoque corrigida, a tabela de preços suavizados por faixas do INCC e os cálculos geoespaciais.
 
 ### Executando a Suíte de Testes Automatizados
 ```bash

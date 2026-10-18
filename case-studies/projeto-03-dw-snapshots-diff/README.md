@@ -188,7 +188,7 @@ projeto-03-dw-snapshots-diff/
 
 ## 6. Qualidade, Confiabilidade e Testes Automatizados
 
-A suíte automatizada em [`tests/test_dw_snapshots.py`](file:///g:/Meu%20Drive/Portif%C3%B3lio/portfolio-workspace/case-studies/projeto-03-dw-snapshots-diff/tests/test_dw_snapshots.py) valida rigorosamente os mecanismos de defesa do Data Warehouse:
+A suíte automatizada em [`tests/test_dw_snapshots.py`](tests/test_dw_snapshots.py) valida rigorosamente os mecanismos de defesa do Data Warehouse:
 
 - **`test_guarda_contrato_colunas_bloqueia_schema_drift`**: Comprova que a remoção, adição não autorizada ou renomeação de coluna na staging dispara `ContractViolationError` e impede a publicação.
 - **`test_idempotencia_dupla_execucao_mesmo_snapshot`**: Executa `publicar_snapshot_semanal` duas vezes seguidas para a mesma `data_snapshot` (`2026-10-18`) e verifica que a contagem de fotos e linhas permanece exata (sem duplicação) e que o log em `ctl_log_carga` registra a substituição idempotente.

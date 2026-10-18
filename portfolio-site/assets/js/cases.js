@@ -49,8 +49,8 @@ const PLAIN_CONTENT = {
     problem: "Os números de cobrança vinham de arquivos antigos e difíceis de auditar. Cessões de crédito se misturavam com cancelamentos, custas jurídicas com parcelas e, quando o cálculo noturno do sistema atrasava, os relatórios saíam errados sem ninguém perceber.",
     solution: "Montei a estrutura de dados em camadas no Microsoft Fabric, com um portão de segurança: se os dados da noite chegam incompletos, a atualização é bloqueada e o painel continua mostrando o último número correto. Também separei cessões de cancelamentos de verdade e criei a visão de como os atrasos evoluem de um mês para o outro.",
     results: [
-      "Números conferidos em 100% das células (2.826 de 2.826)",
-      "44 de 44 cidades batendo com os relatórios antigos",
+      "Números conferidos célula a célula entre duas implementações independentes",
+      "Resultados batendo com os relatórios antigos, cidade a cidade",
       "Fim das divergências entre os relatórios financeiros e os comerciais"
     ],
     tools: ["Microsoft Fabric", "PySpark", "SQL", "Power BI"]
@@ -58,23 +58,23 @@ const PLAIN_CONTENT = {
   "projeto-04-marketing-crm-cloud": {
     area: "Marketing e vendas",
     title: "Todo o marketing e as vendas em um só painel",
-    problem: "O investimento em anúncios estava espalhado em seis plataformas (Google Ads, Meta, Google Analytics, entre outras), sem um padrão de nomes entre as campanhas e as vendas. Ninguém enxergava o resultado completo por cidade e por empreendimento.",
-    solution: "Criei rotinas automáticas que buscam os dados das seis plataformas todos os dias e guardam tudo no BigQuery. Elas continuam corretas mesmo se uma plataforma falhar no meio da carga ou reajustar números do passado. Também criei a leitura automática dos nomes das campanhas (cidade, estado, lançamento) e um aplicativo web para a diretoria.",
+    problem: "O investimento em anúncios estava espalhado em várias plataformas (Google Ads, Meta, Google Analytics, entre outras), sem um padrão de nomes entre as campanhas e as vendas. Ninguém enxergava o resultado completo por cidade e por empreendimento.",
+    solution: "Criei rotinas automáticas que buscam os dados das plataformas todos os dias e guardam tudo no BigQuery. Elas continuam corretas mesmo se uma plataforma falhar no meio da carga ou reajustar números do passado. Também criei a leitura automática dos nomes das campanhas (cidade, estado, lançamento) e um aplicativo web para a diretoria.",
     results: [
-      "6 plataformas reunidas e atualizadas automaticamente",
-      "Aplicativo executivo 60% mais leve (de 114 MB para 46 MB)",
-      "986 clientes elegíveis resgatados após a compensação bancária, com auditoria",
+      "Plataformas reunidas e atualizadas automaticamente",
+      "Aplicativo executivo bem mais leve e rápido",
+      "Clientes elegíveis resgatados após a compensação bancária, com auditoria",
       "Rotinas rodando sem pagar servidor para orquestrá-las"
     ],
     tools: ["Python", "BigQuery", "GitHub Actions", "Streamlit"]
   },
   "projeto-06-maquina-estados-imobiliario": {
     area: "Comercial",
-    title: "Máquina do tempo do estoque de imóveis (2017–2026)",
-    problem: "Para entender a velocidade de vendas era preciso saber a situação exata de cada unidade em cada mês do passado. Mas os dados vinham de um sistema de gestão e de três CRMs diferentes, com contradições, como um cancelamento registrado meses depois de a unidade já ter sido vendida de novo.",
+    title: "Máquina do tempo do estoque de imóveis",
+    problem: "Para entender a velocidade de vendas era preciso saber a situação exata de cada unidade em cada mês do passado. Mas os dados vinham de um sistema de gestão e de vários CRMs diferentes, com contradições, como um cancelamento registrado meses depois de a unidade já ter sido vendida de novo.",
     solution: "Criei uma regra de linha do tempo que resolve essas contradições e reconstrói o estoque mês a mês, sem unidade com duas situações ao mesmo tempo. Também limpei erros de digitação nos preços por metro quadrado, corrigindo pela inflação da construção (INCC), e distribuí os compradores no mapa sem que os pontos se sobreponham.",
     results: [
-      "10 anos de histórico mensal reconstruídos",
+      "Histórico mensal de estoque reconstruído, mês a mês",
       "Cada unidade com uma única situação por mês",
       "Curvas de preço por m² sem distorções de digitação"
     ],
@@ -84,11 +84,11 @@ const PLAIN_CONTENT = {
     area: "Migração e governança",
     title: "Recuperando o conhecimento de relatórios e sistemas antigos",
     problem: "A migração dos relatórios antigos (QlikView e dezenas de arquivos de Power BI) para o Microsoft Fabric estava travada: faltava licença para abrir os arquivos, faltava permissão para ler as regras do banco de dados e os painéis se contradiziam.",
-    solution: "Escrevi ferramentas próprias que leem esses arquivos sem precisar do programa original, analisam 44 relatórios de Power BI e catalogam o que existe, apontando conflitos. Tudo foi documentado em um catálogo com verificação automática para não vazar dados pessoais.",
+    solution: "Escrevi ferramentas próprias que leem esses arquivos sem precisar do programa original, analisam os relatórios de Power BI e catalogam o que existe, apontando conflitos. Tudo foi documentado em um catálogo com verificação automática para não vazar dados pessoais.",
     results: [
-      "654 milhões de linhas lidas em 508 arquivos antigos (81,6 GB)",
-      "44 relatórios analisados, com 171 cálculos de mesmo nome e resultados diferentes encontrados",
-      "Migração destravada em semanas, não em meses"
+      "Arquivos antigos lidos por inteiro, sem precisar do programa original",
+      "Relatórios analisados, com cálculos de mesmo nome e resultados diferentes encontrados",
+      "Migração destravada"
     ],
     tools: ["Python", "SQL", "Power BI"]
   }
