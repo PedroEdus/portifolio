@@ -1,64 +1,79 @@
-<div align="center">
-
 # Pedro Eduardo
+### Engenharia de Dados & Analytics
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&amp;weight=600&amp;size=24&amp;duration=3000&amp;pause=1000&amp;color=6A7EC8&amp;center=true&amp;vCenter=true&amp;width=760&amp;height=55&amp;lines=Engenharia+de+Dados+%7C+Analytics;Python+%7C+SQL+%7C+Microsoft+Fabric+%7C+BigQuery;Do+dado+bruto+ao+produto+analitico" alt="Engenharia de Dados e Analytics — Python, SQL, Microsoft Fabric e BigQuery" />
+Construo pipelines e produtos analíticos para Marketing, Comercial e áreas corporativas. Meu trabalho começa na investigação das fontes e das regras de negócio e segue até a entrega dos dados para análise.
 
-**Pipelines, modelos de dados e aplicações analíticas para apoiar decisões de negócio.**
-
-[![Portfólio](https://img.shields.io/badge/Portf%C3%B3lio-6A7EC8?style=for-the-badge&logo=githubpages&logoColor=white)](https://pedroedus.github.io/portifolio/)
-
-</div>
+[Portfólio ↗](https://pedroedus.github.io/portifolio/) · [Repositórios ↗](https://github.com/PedroEdus?tab=repositories)
 
 ---
 
-## Sobre mim
+## O que você encontra por aqui
 
-Sou Analista de Dados com foco em Engenharia de Dados e Analytics Engineering. Minha experiência conecta BI, marketing analytics e desenvolvimento de pipelines para transformar fontes dispersas em dados organizados e produtos úteis para o negócio.
+Integrações com APIs, cargas incrementais em Python, transformações em SQL e aplicações para explorar os dados. Minha trajetória passa por BI e Marketing Analytics, com foco atual em Engenharia de Dados e Analytics Engineering.
 
-No dia a dia, trabalho com:
+Tenho interesse especial na parte que sustenta a análise: definir a granularidade, escolher as chaves, tratar duplicidades e permitir que uma carga seja reprocessada sem comprometer o histórico.
 
-- **Integração de dados:** pipelines ETL/ELT em Python para APIs de mídia, analytics e sistemas de negócio.
-- **Confiabilidade das cargas:** extrações incrementais, janelas de reprocessamento, deduplicação e MERGE no BigQuery.
-- **Modelagem e transformação:** organização de dados para consumo analítico com SQL, BigQuery e Microsoft Fabric.
-- **Produtos analíticos:** dashboards em Power BI e aplicações Streamlit para Marketing, Comercial e áreas corporativas.
-- **Automação e documentação:** execução com GitHub Actions e registro de regras de negócio e decisões técnicas.
+## Projetos selecionados
 
-## Tech Stack
+<table>
+<tr>
+<td width="50%" valign="top">
 
-| Área | Tecnologias |
-| :--- | :--- |
-| Linguagens e transformação | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square) ![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white) |
-| Plataformas de dados | ![Microsoft Fabric](https://img.shields.io/badge/Microsoft_Fabric-117865?style=flat-square) ![BigQuery](https://img.shields.io/badge/BigQuery-4285F4?style=flat-square&logo=googlebigquery&logoColor=white) ![SQL Server](https://img.shields.io/badge/SQL_Server-CC2927?style=flat-square) |
-| BI e aplicações | ![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logoColor=black) ![DAX](https://img.shields.io/badge/DAX-555555?style=flat-square) ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white) |
-| Automação e versionamento | ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) |
+### 01 / Integração e carga
 
-## Projetos em destaque
+**[Pipeline Meta Ads ↗](https://github.com/PedroEdus/meta_ads)**
 
-### [Painel Geral de Marketing](https://github.com/PedroEdus/Painel-Geral)
+Dados de campanhas extraídos por API e carregados no BigQuery, com execução automatizada pelo GitHub Actions.
 
-Aplicação Streamlit multipágina que consolida análises de Google Ads, Meta Ads, GA4 e Publya, com conexão centralizada ao BigQuery e componentes compartilhados de interface.
+- Carga incremental com lookback de três dias.
+- Atualização e deduplicação com MERGE.
+- Registro de controle das cargas.
 
-**Python · BigQuery · Streamlit · Marketing Analytics**
+**Python · BigQuery · GitHub Actions**
 
-### [Pipeline Meta Ads](https://github.com/PedroEdus/meta_ads)
+</td>
+<td width="50%" valign="top">
 
-Extração de dados da API Meta Ads com carga incremental, janela de reprocessamento de três dias, atualização por MERGE e controle de cargas. Automação com GitHub Actions e consumo analítico em Streamlit.
+### 02 / Consumo analítico
 
-**Python · API REST · BigQuery · GitHub Actions · ETL**
+**[Painel Geral de Marketing ↗](https://github.com/PedroEdus/Painel-Geral)**
 
-### [Portfólio de Engenharia de Dados](https://pedroedus.github.io/portifolio/)
+Aplicação Streamlit que reúne análises de Google Ads, Meta Ads, GA4 e Publya em uma interface multipágina.
 
-Cases de integração, transformação e produtos analíticos, com contexto de negócio e decisões técnicas.
+- Acesso centralizado ao BigQuery.
+- Componentes compartilhados de interface.
+- Visão consolidada dos canais de marketing.
 
-**Engenharia de Dados · Analytics · BI**
+**Python · Streamlit · BigQuery**
+
+</td>
+</tr>
+</table>
+
+[Mais cases e contexto técnico no portfólio ↗](https://pedroedus.github.io/portifolio/)
+
+## Ferramentas no meu trabalho
+
+**Integração e transformação**  
+Python, pandas, SQL e APIs REST.
+
+**Armazenamento e plataformas**  
+Microsoft Fabric, BigQuery e SQL Server.
+
+**Análise e aplicações**  
+Power BI, DAX e Streamlit.
+
+**Automação e versionamento**  
+GitHub Actions e Git.
+
+## Como conduzo os projetos
+
+- **Entender a fonte:** investigar o significado dos campos, as chaves e os limites dos dados.
+- **Definir o modelo:** explicitar granularidade, relacionamentos e regras de negócio.
+- **Preparar a operação:** considerar atualização, reprocessamento e acompanhamento das cargas.
+- **Entregar para uso:** construir uma camada de consumo que responda às perguntas do negócio.
+- **Registrar as decisões:** documentar o contexto e as escolhas para facilitar a manutenção.
 
 ---
 
-<div align="center">
-
-**Vamos conversar sobre dados, automação e produtos analíticos.**
-
-[Explorar meus repositórios](https://github.com/PedroEdus?tab=repositories) · [Conhecer meu portfólio](https://pedroedus.github.io/portifolio/)
-
-</div>
+**Meu foco é conectar a construção dos dados ao uso que as pessoas fazem deles.**
