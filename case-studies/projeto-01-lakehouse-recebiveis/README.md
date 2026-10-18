@@ -3,7 +3,7 @@
 > [!IMPORTANT]
 > **AVISO DE CONFIDENCIALIDADE E SIGILO CORPORATIVO**  
 > Todos os conjuntos de dados, códigos de SPEs, contratos e valores financeiros contidos neste repositório são **100% sintéticos**, gerados deterministicamente via `numpy.random.default_rng(42)`.  
-> Nenhuma informação confidencial, dado pessoal (LGPD) ou segredo de negócio é exposto. A implementação reproduz fielmente a **arquitetura, os algoritmos de controle transacional e as regras de engenharia** desenhados em ambiente real corporativo (Incorporadora imobiliária (empresa A)).
+> Nenhuma informação confidencial, dado pessoal (LGPD) ou segredo de negócio é exposto. A implementação reproduz fielmente a **arquitetura, os algoritmos de controle transacional e as regras de engenharia** desenhados em ambiente real corporativo (Brasil Terrenos / Buriti Empreendimentos).
 
 ---
 
@@ -93,7 +93,7 @@ flowchart TD
 
 Para tornar este estudo de caso **100% executável localmente em segundos** sem depender de credenciais corporativas ou assinatura ativa do Microsoft Fabric, este diretório implementa o motor completo em Python sobre **DuckDB** (com fallback automático para **SQLite**):
 
-| Componente | Produção Real (empresa A) | Implementação Demonstrativa neste Repositório |
+| Componente | Produção Real (Brasil Terrenos / Buriti) | Implementação Demonstrativa neste Repositório |
 | :--- | :--- | :--- |
 | **Motor de Processamento** | Microsoft Fabric Notebooks (PySpark / Delta Lake) | Python 3 + DuckDB (`RelationalEngineAdapter` com fallback SQLite) |
 | **Controle Transacional** | Fabric Data Warehouse T-SQL (`wh_ctl_inad`) | Tabelas SQL transacionais `ctl_rodada` e `ctl_carga_fonte` + métodos `sp_*` |

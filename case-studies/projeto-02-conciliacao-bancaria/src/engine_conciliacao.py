@@ -2,7 +2,7 @@
 Motor de Conciliação Bancária, Recálculo de 5 Pernas Contábeis e Auditoria de Ciclos.
 
 Reproduz a engenharia de dados e auditoria contábil desenvolvida em produção
-no Microsoft Fabric (`ws_financeiro` - Incorporadora imobiliária (empresa A)):
+no Microsoft Fabric (`ws_financeiro` - Brasil Terrenos / Buriti Empreendimentos):
 
 a) Recálculo independente das 5 pernas do razão ERP (`Extrato`, `RecebePgto`,
    `Depositos`, `EntSaiEmpAplic`, `VwTransfBcoExtrato`) confrontado contra o

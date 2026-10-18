@@ -478,8 +478,20 @@ summary:focus-visible {
   border-color: rgba(16, 185, 129, 0.55);
 }
 
+.case-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.75rem;
+}
+
+.case-company {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
 .case-area {
-  align-self: flex-start;
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--accent-cyan);
@@ -969,6 +981,13 @@ summary:focus-visible {
 .modal-head h2 {
   font-size: clamp(1.4rem, 3vw, 1.9rem);
   line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.modal-meta {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
   margin-bottom: 0.75rem;
 }
 

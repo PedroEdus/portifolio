@@ -3,7 +3,7 @@
 > [!IMPORTANT]
 > **AVISO DE CONFIDENCIALIDADE E SIGILO CORPORATIVO**  
 > Todos os dados bancários, contas correntes, aplicações, lançamentos de razão e códigos de SPEs presentes neste repositório são **100% sintéticos**, gerados deterministicamente via `numpy.random.default_rng(42)`.  
-> Nenhuma conta bancária real, extrato ou transação financeira corporativa foi exposta. O código demonstra exclusivamente os **algoritmos de engenharia contábil, expurgo de partidas transitórias e auditoria de ciclos** desenvolvidos em produção no ambiente `ws_financeiro` (Incorporadora imobiliária (empresa A)).
+> Nenhuma conta bancária real, extrato ou transação financeira corporativa foi exposta. O código demonstra exclusivamente os **algoritmos de engenharia contábil, expurgo de partidas transitórias e auditoria de ciclos** desenvolvidos em produção no ambiente `ws_financeiro` (Brasil Terrenos / Buriti Empreendimentos).
 
 ---
 

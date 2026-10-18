@@ -103,9 +103,14 @@ function renderProjects() {
 
   grid.innerHTML = PLAIN_ORDER.map(id => {
     const c = PLAIN_CONTENT[id];
+    const proj = portfolioProjects.find(item => item.id === id);
+    const company = proj ? proj.company : "";
     return `
     <article class="case-card ${c.featured ? "featured" : ""}">
-      <span class="case-area">${c.area}</span>
+      <div class="case-meta">
+        <span class="case-area">${c.area}</span>
+        ${company ? `<span class="case-company">${company}</span>` : ""}
+      </div>
       <h3 class="case-title">${c.title}</h3>
       <div>
         <div class="case-label">O problema</div>
@@ -146,6 +151,7 @@ function openProjectModal(projectId) {
     <div class="modal-head">
       <span class="modal-kicker">Detalhes técnicos · para quem é da área</span>
       <h2>${c.title}</h2>
+      <p class="modal-meta">${p.company}</p>
       <p class="modal-lead">${c.problem}</p>
       <p class="modal-note">Os exemplos de código deste projeto usam <strong>dados fictícios</strong>, criados só para demonstrar o método. Nenhum dado de clientes, colaboradores ou das empresas é exibido.</p>
     </div>

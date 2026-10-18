@@ -20,7 +20,7 @@ const FALLBACK_PORTFOLIO_DATA = {
       "code": "CASE 03 · DESTAQUE ENGENHARIA DE DADOS",
       "featured": true,
       "title": "DW Financeiro: Motor de Historização por Snapshots Semanais/Diários e Diff Engine para ERPs Mutáveis",
-      "company": "Incorporadora imobiliária (empresa A)",
+      "company": "Brasil Terrenos / Buriti Empreendimentos",
       "role": "Data Engineer & Analytics Engineer",
       "categories": [
         "Data Engineering",
@@ -90,7 +90,7 @@ const FALLBACK_PORTFOLIO_DATA = {
       "code": "CASE 01 · LAKEHOUSE & ANALYTICS ENGINEERING",
       "featured": true,
       "title": "Plataforma Lakehouse Medallion, Controle Transacional e Matriz Roll-Rate de Recebíveis",
-      "company": "Incorporadora imobiliária (empresa A)",
+      "company": "Brasil Terrenos / Buriti Empreendimentos",
       "role": "Lead Data Engineer & Analytics Engineer",
       "categories": [
         "Data Engineering",
@@ -154,7 +154,7 @@ const FALLBACK_PORTFOLIO_DATA = {
       "code": "CASE 02 · MOTOR CONTÁBIL & AUDITORIA DE CICLOS",
       "featured": true,
       "title": "Motor de Conciliação Bancária, Recálculo de 5 Pernas do Razão e Auditoria de Ciclos Multi-Snapshot",
-      "company": "Incorporadora imobiliária (empresa A)",
+      "company": "Brasil Terrenos / Buriti Empreendimentos",
       "role": "Data Engineer & Analytics Engineer",
       "categories": [
         "Data Engineering",
@@ -222,7 +222,7 @@ const FALLBACK_PORTFOLIO_DATA = {
       "code": "CASE 04 · CLOUD DATA ENGINEERING & DATA APPS",
       "featured": true,
       "title": "Plataforma Cloud de Marketing & CRM: Ingestão Multi-API, Lookback/MERGE, Taxonomia Regex e Data App",
-      "company": "Incorporadora imobiliária (empresa A)",
+      "company": "Brasil Terrenos / Buriti Empreendimentos",
       "role": "Data Engineer & Data Apps Architect",
       "categories": [
         "Data Engineering",
@@ -276,7 +276,7 @@ const FALLBACK_PORTFOLIO_DATA = {
         }
       ],
       "demoVsReal": {
-        "real": "Ecossistema em produção na empresa A cobrindo Painel-Geral, meta_ads, ga4_extractor, gads_extractor, publya e painel_campanhas (base de contratos no OneLake + BigQuery).",
+        "real": "Ecossistema em produção na Brasil Terrenos / Buriti cobrindo Painel-Geral, meta_ads, ga4_extractor, gads_extractor, publya e painel_campanhas (base de contratos no OneLake + BigQuery).",
         "demo": "Pipeline completo em Python (src/marketing_pipeline.py e src/taxonomia.py) + aplicação executiva Streamlit (app/streamlit_app.py) testando proteção de watermark, MERGE lookback, prevenção de dupla contagem, taxonomia regex e compactação de memória."
       },
       "quality": "Validação de integridade transacional pré-MERGE, deduplicação determinística, cache ancorado nas janelas do ETL e suíte Pytest cobrindo cenários de falha de rede.",
@@ -288,7 +288,7 @@ const FALLBACK_PORTFOLIO_DATA = {
       "code": "CASE 05 · ENGENHARIA REVERSA & GOVERNANÇA EPISTÊMICA",
       "featured": false,
       "title": "Toolkit de Engenharia Reversa: Parser Binário QVD em NumPy Bitwise, Auditoria PBIR/TMDL e Governança Epistêmica",
-      "company": "Incorporadora imobiliária (empresa A)",
+      "company": "Brasil Terrenos / Buriti Empreendimentos",
       "role": "Staff Data Engineer & Governance Architect",
       "categories": [
         "Reverse Engineering & Governance",
@@ -352,7 +352,7 @@ const FALLBACK_PORTFOLIO_DATA = {
       "code": "CASE 06 · MÁQUINA DE ESTADOS, ESTATÍSTICA & GEOESPACIAL",
       "featured": false,
       "title": "Máquina do Tempo de Estoque Imobiliário (Multi-CRM/ERP), Suavização Estatística INCC e Enriquecimento Geoespacial",
-      "company": "Incorporadora imobiliária (empresa B)",
+      "company": "EBM Desenvolvimento Imobiliário",
       "role": "Analytics Engineer & BI / Data Specialist",
       "categories": [
         "State Machines & Algorithms",
@@ -399,7 +399,7 @@ const FALLBACK_PORTFOLIO_DATA = {
         }
       ],
       "demoVsReal": {
-        "real": "Scripts em produção na empresa B (Novo Fechamento.py, tratamento_sintese [preco].py, Pesquisas P1..P4_V5 e kmztocsv.py) gerando bases históricas e alimentando o ecossistema de Inteligência de Mercado e Comercial.",
+        "real": "Scripts em produção na EBM (Novo Fechamento.py, tratamento_sintese [preco].py, Pesquisas P1..P4_V5 e kmztocsv.py) gerando bases históricas e alimentando o ecossistema de Inteligência de Mercado e Comercial.",
         "demo": "Três módulos Python independentes e vetorizados (state_machine_estoque.py, suavizacao_estatistica_incc.py e geoespacial_utils.py) com dados sintéticos e bateria completa de testes Pytest."
       },
       "quality": "Invariantes de unicidade de estado por (id_unidade, ano_mes), conservação do total físico de unidades do empreendimento em todos os meses da série e validação trigonométrica de raio máximo de dispersão.",
