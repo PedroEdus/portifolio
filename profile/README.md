@@ -1,79 +1,101 @@
 # Pedro Eduardo
-### Engenharia de Dados & Analytics
+### Engenharia de Dados · Analytics Engineering · Data Platforms
 
-Construo pipelines e produtos analíticos para Marketing, Comercial e áreas corporativas. Meu trabalho começa na investigação das fontes e das regras de negócio e segue até a entrega dos dados para análise.
+Desenvolvo soluções de dados que conectam sistemas operacionais a ambientes analíticos. Trabalho com integração de APIs e ERPs, construção de pipelines ETL/ELT, modelagem e disponibilização de dados para diferentes áreas do negócio.
+
+Minha trajetória começou em Business Intelligence e evoluiu para a engenharia por trás dos produtos analíticos: entender as fontes, estruturar a ingestão, definir granularidade e chaves, construir transformações confiáveis e preparar os dados para consumo.
 
 [Portfólio ↗](https://pedroedus.github.io/portifolio/) · [Repositórios ↗](https://github.com/PedroEdus?tab=repositories)
 
 ---
 
-## O que você encontra por aqui
+## Áreas em que atuo
 
-Integrações com APIs, cargas incrementais em Python, transformações em SQL e aplicações para explorar os dados. Minha trajetória passa por BI e Marketing Analytics, com foco atual em Engenharia de Dados e Analytics Engineering.
+| Engenharia de dados | Analytics Engineering | Produtos de dados |
+| :--- | :--- | :--- |
+| Integração de APIs e ERPs, pipelines em Python e automação de cargas. | Modelagem analítica, SQL, regras de negócio, qualidade e organização em camadas. | Preparação de dados para dashboards, aplicações e indicadores usados por equipes de negócio. |
 
-Tenho interesse especial na parte que sustenta a análise: definir a granularidade, escolher as chaves, tratar duplicidades e permitir que uma carga seja reprocessada sem comprometer o histórico.
+Gosto especialmente dos problemas que não são resolvidos apenas com um dashboard: descobrir como sistemas se relacionam, identificar chaves e granularidade, corrigir inconsistências e tornar cargas incrementais e reprocessamentos previsíveis.
 
-## Projetos selecionados
+## Projetos em destaque
 
-<table>
-<tr>
-<td width="50%" valign="top">
+### 01 — Plataforma de dados para Marketing Analytics
+**Integração multiorigem · Pipelines ETL/ELT · Automação**
 
-### 01 / Integração e carga
+Integração de dados de **Meta Ads, Google Ads, GA4 e Publya** para centralizar informações de aquisição e desempenho de marketing em um ambiente analítico.
 
-**[Pipeline Meta Ads ↗](https://github.com/PedroEdus/meta_ads)**
+**Desafios e implementação**
+- Integração com APIs de diferentes estruturas, autenticações e granularidades.
+- Desenvolvimento de extrações e transformações em **Python**.
+- Armazenamento e consolidação dos dados no **BigQuery**.
+- Estratégias de carga incremental, recuperação de períodos e tratamento de duplicidades.
+- Agendamento de rotinas por **GitHub Actions** e disponibilização dos dados para aplicações em **Streamlit**.
 
-Dados de campanhas extraídos por API e carregados no BigQuery, com execução automatizada pelo GitHub Actions.
+**Stack:** Python · APIs REST · BigQuery · SQL · GitHub Actions · Streamlit
 
-- Carga incremental com lookback de três dias.
-- Atualização e deduplicação com MERGE.
-- Registro de controle das cargas.
-
-**Python · BigQuery · GitHub Actions**
-
-</td>
-<td width="50%" valign="top">
-
-### 02 / Consumo analítico
-
-**[Painel Geral de Marketing ↗](https://github.com/PedroEdus/Painel-Geral)**
-
-Aplicação Streamlit que reúne análises de Google Ads, Meta Ads, GA4 e Publya em uma interface multipágina.
-
-- Acesso centralizado ao BigQuery.
-- Componentes compartilhados de interface.
-- Visão consolidada dos canais de marketing.
-
-**Python · Streamlit · BigQuery**
-
-</td>
-</tr>
-</table>
-
-[Mais cases e contexto técnico no portfólio ↗](https://pedroedus.github.io/portifolio/)
-
-## Ferramentas no meu trabalho
-
-**Integração e transformação**  
-Python, pandas, SQL e APIs REST.
-
-**Armazenamento e plataformas**  
-Microsoft Fabric, BigQuery e SQL Server.
-
-**Análise e aplicações**  
-Power BI, DAX e Streamlit.
-
-**Automação e versionamento**  
-GitHub Actions e Git.
-
-## Como conduzo os projetos
-
-- **Entender a fonte:** investigar o significado dos campos, as chaves e os limites dos dados.
-- **Definir o modelo:** explicitar granularidade, relacionamentos e regras de negócio.
-- **Preparar a operação:** considerar atualização, reprocessamento e acompanhamento das cargas.
-- **Entregar para uso:** construir uma camada de consumo que responda às perguntas do negócio.
-- **Registrar as decisões:** documentar o contexto e as escolhas para facilitar a manutenção.
+**Implementações relacionadas:** [Extração Meta Ads ↗](https://github.com/PedroEdus/meta_ads) · [Aplicação analítica ↗](https://github.com/PedroEdus/Painel-Geral)
 
 ---
 
-**Meu foco é conectar a construção dos dados ao uso que as pessoas fazem deles.**
+### 02 — Engenharia de dados para Conciliação Financeira
+**Investigação de fontes · Relacionamento de dados · Regras de negócio**
+
+Trabalho de descoberta e estruturação das fontes de um **ERP corporativo** para apoiar uma solução analítica de conciliação financeira, voltada à identificação de contas e movimentos que exigem atenção dos analistas.
+
+**Desafios e trabalho realizado**
+- Inspeção de tabelas do ERP para compreender a origem e o significado dos registros.
+- Investigação de chaves, relacionamentos e diferentes granularidades.
+- Mapeamento de vínculos entre movimentações financeiras e regras de expurgo.
+- Tradução das descobertas em requisitos para a consolidação e a futura modelagem analítica.
+
+**Competências:** SQL · Data Discovery · Modelagem de Dados · Qualidade de Dados · Análise de Regras de Negócio
+
+*Estudo de caso em documentação. A investigação técnica não deve ser confundida com um pipeline de produção concluído.*
+
+---
+
+### 03 — Arquitetura de dados para Análise de Inadimplência
+**Microsoft Fabric · Lakehouse · Modelagem histórica**
+
+Estruturação de uma solução de dados para análise de inadimplência a partir de informações do **ERP UAU**, com foco na confiabilidade das fontes, na evolução histórica dos indicadores e na preparação de uma base consistente para consumo analítico.
+
+**Desafios e abordagem técnica**
+- Descoberta e validação das fontes operacionais e de suas regras de negócio.
+- Definição de granularidade, identificadores e relacionamentos entre entidades.
+- Planejamento da organização dos dados em camadas **Bronze, Silver e Gold**.
+- Estruturação de estratégias de historização e snapshots para análises temporais.
+- Modelagem da camada de consumo para indicadores e relatórios no **Power BI**.
+
+**Stack e arquitetura:** Microsoft Fabric · Data Pipelines · Lakehouse · SQL · Power BI
+
+*Projeto em evolução. Os itens acima descrevem o trabalho de arquitetura e estruturação, não uma alegação de implantação integral em produção.*
+
+---
+
+## Stack técnica
+
+**Ingestão e orquestração**  
+Python · pandas · APIs REST · GitHub Actions · Microsoft Fabric Data Pipelines
+
+**Armazenamento e processamento**  
+BigQuery · Microsoft Fabric · Lakehouse · SQL Server · SQL
+
+**Modelagem e confiabilidade**  
+ETL/ELT · Modelagem dimensional · Cargas incrementais · Deduplicação · MERGE/UPSERT · Snapshots · Arquitetura Bronze/Silver/Gold
+
+**Consumo analítico e desenvolvimento**  
+Power BI · DAX · Streamlit · Git
+
+## Como abordo um problema de dados
+
+1. **Investigo a origem:** sistemas, tabelas, APIs, significado dos campos e restrições.
+2. **Defino o contrato analítico:** granularidade, chaves, relacionamentos, regras de negócio e critérios de qualidade.
+3. **Estruturo o fluxo:** extração, armazenamento, transformações, atualização e possibilidades de reprocessamento.
+4. **Preparo o consumo:** modelos e camadas que simplificam o uso dos dados pelas equipes.
+5. **Documento as decisões:** o que foi implementado, as limitações encontradas e o que ainda precisa evoluir.
+
+---
+
+**Engenharia de Dados, para mim, é construir uma base confiável entre a origem da informação e a decisão que depende dela.**
+
+> **Sobre os cases:** projetos corporativos são apresentados em nível de arquitetura e experiência profissional. Implementações públicas devem usar código autorizado ou reconstruções independentes com dados sintéticos.
